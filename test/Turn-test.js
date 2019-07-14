@@ -2,17 +2,23 @@ import Turn from '../src/Turn.js';
 import data from '../src/dataset.js';
 import Player from '../src/Player.js';
 import Round from '../src/Round.js'
+import Game from '../src/Game.js';
 import chai from 'chai';
 const expect = chai.expect;
 
-let turn, testSurveys, testAnswers, currentRound;
+let currentGame = new Game(data.surveys, data.answers);
+currentGame.startGame();
+let currentRound = currentGame.currentRound;
+let turn = currentRound.startTurn();
 
-beforeEach(() => {
-  testSurveys = data.surveys.filter(survey => survey.id < 4);
-  testAnswers = data.answers.filter(answer => testSurveys.some(survey => survey.id === answer.surveyId));
-  currentRound = new Round(testSurveys, testAnswers);
-  turn = currentRound.startTurn();
-});
+// let turn, testSurveys, testAnswers, currentRound;
+
+// beforeEach(() => {
+//   testSurveys = data.surveys.filter(survey => survey.id < 4);
+//   testAnswers = data.answers.filter(answer => testSurveys.some(survey => survey.id === answer.surveyId));
+//   currentRound = new Round(testSurveys, testAnswers);
+//   turn = currentRound.startTurn();
+// });
 
 describe('Turn', () => {
   it('should be a function', () => {

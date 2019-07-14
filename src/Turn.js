@@ -1,6 +1,7 @@
 class Turn {
   constructor(round) {
     this.round = round;
+    console.log(this.round.currentPlayer)
     this.currentPlayer = this.round.currentPlayer;
   }
 
