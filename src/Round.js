@@ -1,14 +1,15 @@
 import Player from './Player.js';
 import Turn from './Turn.js';
-const playerOne = new Player();
+import Game from './Game.js';
 
 class Round {
-  constructor(surveys, answers) {
+  constructor(game, surveys, answers) {
+  	console.log(this.surveys)
     this.surveys = surveys;
     this.answers = answers;
     this.counter = 0;
     this.currentSurveyAnswers = this.answers.filter(answer => answer.surveyId === this.surveys[this.counter].id);
-    this.currentPlayer = playerOne;
+    this.currentPlayer = game.playerOne;
     this.multiplier = 1;
   }
 
@@ -23,7 +24,7 @@ class Round {
     if (this.counter < 2) {
      this.startRound();
     }
-    if(this.counter === 2) {
+    else {
      this.startFastMoneyRound();
     } 
   }

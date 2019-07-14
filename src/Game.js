@@ -12,7 +12,8 @@ class Game {
   }
 
   startGame() {
-    this.currentRound = new Round(this.pickSurveys(), this.pickAnswers())
+    this.currentRound = new Round(this, this.pickSurveys(), this.pickAnswers())
+    return this.currentRound;
   }
 
   pickSurveys() {
