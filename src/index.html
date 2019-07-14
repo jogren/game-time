@@ -9,7 +9,7 @@
     <img src="https://ui-ex.com/images/x-transparent-family-feud-5.png">
     <time datetime="00:00:30">Timer</time>
     <section>
-    	<h3 id="question"></h3>
+    	<h3 id="survey-question"></h3>
 	  	<output id="answer-one">
 	  	</output>
 	  	<output id="answer-two">
@@ -18,20 +18,24 @@
 	  	</output>
   	</section>
   	<div id="player-one">
-  		<p>Player One Name</p>
-  		<p>Points</p>
+  		<label for="player-one-name">Player One Name</label>
+  		<input type="text" id="player-one-name">
+  		<input type="button" for="player-one-name" id="player-one-name-button">
+  		<p id="player-one-points"></p>
   	</div>
   	<form id="player-answers">
   		<fieldset>
   			<legend>Player Answers</legend>
   			<label for="player-answer">Answer!</label>
   			<input type="text" id="player-answer" placeholder="Current Answer">
-  			<input type="button" for="player-answers">
+  			<input type="button" for="player-answers" id="guess-button">
   		</fieldset>
   	</form>
   	<div id="player-two">
-  		<p>Player Two Name</p>
-  		<p>Points</p>
+  		<label for="player-two-name">Player Two Name</label>
+  		<input type="text" id="player-two-name">
+  		<input type="button" for="player-two-name" id="player-two-name-button">
+  		<p id="player-two-points"></p>
   	</div>
   </body>
 </html>

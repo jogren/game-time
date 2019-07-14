@@ -9,14 +9,11 @@ class Round {
     this.counter = 0;
     this.currentSurvey = this.surveys[this.counter]
     this.currentSurveyAnswers;
-    this.currentPlayer = game.playerOne;
-    this.multiplier = 1;
   }
 
   startRound() {
-  	this.startTurn();
     this.setCurrentSurveyAnswers();
-    //return the surveys to display on dom?
+  	this.startTurn();
   }
 
   endRound() {
@@ -37,7 +34,7 @@ class Round {
   }
 
   startFastMoneyRound() {
-  	
+
   }
 
 }
