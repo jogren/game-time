@@ -14,11 +14,7 @@ class Round {
 
   startRound() {
     this.setCurrentSurveyAnswers();
-  	this.startTurn();
-<<<<<<< HEAD
-=======
-    //return the surveys to display on dom?
->>>>>>> master
+  	return this.startTurn();
   }
 
   endRound() {

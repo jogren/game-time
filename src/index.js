@@ -27,9 +27,12 @@ let $playerTwoNameInput = $('#player-two-name');
 
 $('#player-one-name-button').on('click', reassignPlayerName);
 $('#player-two-name-button').on('click', reassignPlayerName);
-$('#guess-button').on('click', currentTurn.checkGuess($('#player-answer').val()));
+$('#guess-button').on('click', handleGuess);
 
-console.log()
+console.log(currentRound.startRound())
+console.log(currentTurn)
+console.log(currentRound.currentSurveyAnswers)
+console.log(currentGame.playerOne, currentGame.playerTwo)
 
 $surveyQuestion.text(currentRound.currentSurvey.question);
 
@@ -46,4 +49,9 @@ function reassignPlayerName(e) {
 	} else {
 		currentGame.playerTwo.name = $playerTwoNameInput.val();
 	}
+}
+
+function handleGuess(e) {
+	currentTurn.checkGuess($('#player-answer').val());
+	$('#player-answer').val('');
 }
