@@ -16,6 +16,6 @@ describe('Player', () => {
 
   it('should instantiate a player with zero points', () => {
     const player = new Player('John');
-    expect(player.points).to.equal(0);
+    expect(player.score).to.equal(0);
   });
 })

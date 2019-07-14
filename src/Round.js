@@ -4,37 +4,39 @@ import Game from './Game.js';
 
 class Round {
   constructor(game, surveys, answers) {
+    this.game = game;
     this.surveys = surveys;
     this.answers = answers;
     this.counter = 0;
-    this.currentSurveyAnswers = this.answers.filter(answer => answer.surveyId === this.surveys[this.counter].id);
-    this.currentPlayer = game.playerOne;
-    this.multiplier = 1;
+    this.currentSurvey = this.surveys[this.counter]
+    this.currentSurveyAnswers;
   }
 
   startRound() {
+    this.setCurrentSurveyAnswers();
   	this.startTurn();
-    return this.surveys[this.counter];
     //return the surveys to display on dom?
   }
 
   endRound() {
     this.counter++;
-    if (this.counter < 2) {
-     this.startRound();
-    }
-    else {
+    this.startRound();
+    if (this.counter === 2) {
      this.startFastMoneyRound();
     } 
   }
 
   startTurn() {
-  	let currentTurn = new Turn(this);
+  	let currentTurn = new Turn(this.game, this);
   	return currentTurn;
   }
 
-  startFastMoneyRound() {
+  setCurrentSurveyAnswers() {
+  	this.currentSurveyAnswers = this.answers.filter(answer => answer.surveyId === this.surveys[this.counter].id);
+  }
 
+  startFastMoneyRound() {
+  	
   }
 
 }

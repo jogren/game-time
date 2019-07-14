@@ -1,45 +1,27 @@
 class Turn {
-  constructor(round) {
+  constructor(game, round) {
+    this.game = game;
     this.round = round;
-    console.log(this.round.currentPlayer)
-    this.currentPlayer = this.round.currentPlayer;
+    this.currentPlayer = this.game.playerOne;
   }
 
   checkGuess(guess) {
-    // let newGuess = guess.toLowerCase();
     let currentAnswers = this.round.currentSurveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
     let boolean = currentAnswers.includes(guess.toLowerCase());
     if (boolean) {
-      this.handleCorrectGuess(guess);
+      this.assignPoints(guess);
     }
-    // this.endTurn();
+    this.endTurn();
     return boolean;
-
-    // let boolean = blahblah conditional checking answer
-    //   true? handleCorrectGuess()
-    //   endTurn();
-    //   return boolean so we can manipulate dom appropriately;
   }
 
-  handleCorrectGuess(guess) {
+  assignPoints(guess) {
     let targetPoints = this.round.currentSurveyAnswers.find(obj => obj.answer.toLowerCase() === guess.toLowerCase()).respondents;
-    this.assignPoints(targetPoints)
-
-    // round.surveys = round.surveys.filter(return !survey.answer === guess);
-  }
-
-  assignPoints() {
-    this.currentPlayer.points += targetPoints * currentPlayer.multiplier;
-
-    // checkGuess() ? this.currentPlayer.points += (correctAnswerObject(?).respondents * multiplier);
+    this.currentPlayer.score += targetPoints * this.currentPlayer.multiplier;
   }
 
   endTurn() {
-    // this.currentPlayer === currentGame.playerOne ? this.currentPlayer = currentGame.playerTwo : this.currentPlayer = currentGame.playerOne;
-  }
-
-  startTurn() {
-
+    this.currentPlayer === this.game.playerOne ? this.currentPlayer = this.game.playerTwo : this.currentPlayer = this.game.playerOne;
   }
 }
 
