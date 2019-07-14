@@ -4,18 +4,17 @@ import Game from './Game.js';
 
 class Round {
   constructor(game, surveys, answers) {
+    this.game = game;
     this.surveys = surveys;
     this.answers = answers;
     this.counter = 0;
     this.currentSurvey = this.surveys[this.counter]
     this.currentSurveyAnswers;
-    this.currentPlayer = game.playerOne;
-    this.multiplier = 1;
   }
 
   startRound() {
-  	this.startTurn();
     this.setCurrentSurveyAnswers();
+  	this.startTurn();
     //return the surveys to display on dom?
   }
 
@@ -28,7 +27,7 @@ class Round {
   }
 
   startTurn() {
-  	let currentTurn = new Turn(this);
+  	let currentTurn = new Turn(this.game, this);
   	return currentTurn;
   }
 

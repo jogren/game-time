@@ -35,7 +35,6 @@ describe('Round', function() {
 		// });
 
 		it('should return the current survey question', function() {
-			console.log(currentRound)
 			expect(currentRound.surveys[0].id).to.eql(currentGame.gameIds[0]);
 			currentRound.endRound();
 			expect(currentRound.surveys[1].id).to.eql(currentGame.gameIds[1])
