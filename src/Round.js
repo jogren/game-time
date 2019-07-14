@@ -4,3 +4,5 @@ class Round {
     this.answers = answers;
   }
 }
+
+export default Round

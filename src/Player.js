@@ -4,3 +4,5 @@ class Player {
     this.score = 0;
   }
 }
+
+export default Player
