@@ -1,7 +1,7 @@
 class Turn {
   constructor(round) {
     this.round = round;
-    // this.currentPlayer = currentGame.playerOne;
+    this.currentPlayer = this.round.currentPlayer;
   }
 
   checkGuess(guess) {

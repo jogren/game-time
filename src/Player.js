@@ -1,8 +1,9 @@
 class Player {
-  constructor(name) {
+  constructor(name){
     this.name = name;
-    this.points = 0;
+    this.score = 0;
   }
 }
 
 export default Player;
+

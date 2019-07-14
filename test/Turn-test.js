@@ -8,7 +8,6 @@ const expect = chai.expect;
 let turn, testSurveys, testAnswers, currentRound;
 
 beforeEach(() => {
-  // turn = new Turn();
   testSurveys = data.surveys.filter(survey => survey.id < 4);
   testAnswers = data.answers.filter(answer => testSurveys.some(survey => survey.id === answer.surveyId));
   currentRound = new Round(testSurveys, testAnswers);
