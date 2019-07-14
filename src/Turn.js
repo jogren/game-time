@@ -1,37 +1,40 @@
 class Turn {
-  constructor() {
-    this.currentPlayer = currentGame.currentPlayer;
+  constructor(round) {
+    this.round = round;
+    // this.currentPlayer = currentGame.playerOne;
   }
 
   checkGuess(guess) {
     // let newGuess = guess.toLowerCase();
-    let currentAnswers = currentRound.currentSurveyAnswers.map(answer => answer.answer.toLowerCase());
+    let currentAnswers = this.round.currentSurveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
     let boolean = currentAnswers.includes(guess.toLowerCase());
     if (boolean) {
-      this.handleCorrectGuess(currentAnswers, guess);
+      this.handleCorrectGuess(guess);
     }
-    this.endTurn();
+    // this.endTurn();
     return boolean;
+
     // let boolean = blahblah conditional checking answer
     //   true? handleCorrectGuess()
     //   endTurn();
     //   return boolean so we can manipulate dom appropriately;
   }
 
-  handleCorrectGuess(currentAnswers, guess) {
-    let targetPoints = currentAnswers.find(answer => answer.answer === guess.toLowerCase()).respondents;
-    
-    // round.surveys = round.surveys.filter(return !survey.answer === guess);
+  handleCorrectGuess(guess) {
+    let targetPoints = this.round.currentSurveyAnswers.find(obj => obj.answer.toLowerCase() === guess.toLowerCase()).respondents;
     this.assignPoints(targetPoints)
+
+    // round.surveys = round.surveys.filter(return !survey.answer === guess);
   }
 
-  assignPoints(guess) {
-    this.checkGuess() ? this.currentPlayer.points += targetPoints * currentRound.multiplier;
+  assignPoints() {
+    this.currentPlayer.points += targetPoints * currentPlayer.multiplier;
+
     // checkGuess() ? this.currentPlayer.points += (correctAnswerObject(?).respondents * multiplier);
   }
 
   endTurn() {
-    this.currentPlayer === playerOne ? this.currentPlayer = playerTwo : this.currentPlayer = playerOne;
+    // this.currentPlayer === currentGame.playerOne ? this.currentPlayer = currentGame.playerTwo : this.currentPlayer = currentGame.playerOne;
   }
 
   startTurn() {
