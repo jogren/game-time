@@ -14,8 +14,7 @@ class Round {
 
   startRound() {
     this.setCurrentSurveyAnswers();
-  	this.startTurn();
-    //return the surveys to display on dom?
+  	return this.startTurn();
   }
 
   endRound() {
@@ -36,7 +35,7 @@ class Round {
   }
 
   startFastMoneyRound() {
-  	
+
   }
 
 }
