@@ -6,22 +6,23 @@ class Turn {
   }
 
   checkGuess(guess) {
-    let currentAnswers = this.round.currentSurveyAnswers.map(answerObj => answerObj.answer.toLowerCase());
-    let boolean = currentAnswers.includes(guess.toLowerCase());
-    if (boolean) {
-      this.assignPoints(guess);
+    let index = this.round.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
+    if (index !== -1) {
+      let targetAnswer = this.round.currentSurveyAnswers.splice(index, 1)[0];
+      this.assignPoints(targetAnswer);
     }
     this.endTurn();
-    return boolean;
   }
 
-  assignPoints(guess) {
-    let targetPoints = this.round.currentSurveyAnswers.find(obj => obj.answer.toLowerCase() === guess.toLowerCase()).respondents;
-    this.currentPlayer.score += targetPoints * this.currentPlayer.multiplier;
+  assignPoints(targetAnswer) {
+    this.currentPlayer.score += targetAnswer.respondents * this.currentPlayer.multiplier;
   }
 
   endTurn() {
     this.currentPlayer === this.game.playerOne ? this.currentPlayer = this.game.playerTwo : this.currentPlayer = this.game.playerOne;
+    if (this.round.currentSurveyAnswers.length === 0) {
+      this.round.endRound();
+    }
   }
 }
 
