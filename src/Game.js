@@ -19,7 +19,7 @@ class Game {
   pickSurveys() {
     let randomIds = [];
     for (let i = 0; i < 15; i++) {
-      let randomId = Math.floor(Math.random() * Math.floor(15))
+      let randomId = Math.floor(Math.random() * Math.floor(15) + 1)
       randomIds.push(randomId)
     } 
     this.gameIds = Array.from(new Set(randomIds)).slice(0, 3)
