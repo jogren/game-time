@@ -25,7 +25,7 @@ describe('Round', function() {
 	// 	expect(currenGam).to.be.a('function');
 	// });
 
-	it('should be an instance of User', function() {
+	it('should be an instance of Round', function() {
 		expect(currentGame.currentRound).to.be.an.instanceOf(Round);
 	});
 
