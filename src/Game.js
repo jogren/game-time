@@ -1,5 +1,6 @@
 import Round from './Round.js';
 import Player from './Player.js';
+import domUpdates from './domUpdates';
 
 class Game {
   constructor(allSurveys, allAnswers, player1Name = 'Player 1', player2Name = 'Player 2') {
@@ -12,7 +13,8 @@ class Game {
   }
 
   startGame() {
-    this.currentRound = new Round(this, this.pickSurveys(), this.pickAnswers())
+    this.currentRound = new Round(this, this.pickSurveys(), this.pickAnswers());
+    domUpdates.populateQuestionsAndAnswers(this.currentRound);
     return this.currentRound;
   }
 

@@ -1,3 +1,5 @@
+import domUpdates from './domUpdates';
+
 class Turn {
   constructor(game, round) {
     this.game = game;

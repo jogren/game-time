@@ -3,7 +3,12 @@ import Round from '../src/Round.js';
 import Player from '../src/Player.js';
 import data from '../src/dataset.js';
 import chai from 'chai';
+import domUpdates from '../src/domUpdates.js';
 const expect = chai.expect;
+import spies from 'chai-spies';
+chai.use(spies);
+
+chai.spy.on(domUpdates, ['populateQuestionsAndAnswers'], () => {});
 
 let game = new Game(data.surveys, data.answers, 'Joe', 'Sarah')
 

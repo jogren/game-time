@@ -13,16 +13,18 @@ class Round {
   }
 
   startRound() {
+    this.currentSurvey = this.surveys[this.counter]
     this.setCurrentSurveyAnswers();
   	return this.startTurn();
   }
 
   endRound() {
     this.counter++;
-    this.startRound();
     if (this.counter === 2) {
      this.startFastMoneyRound();
-    } 
+    } else {
+      this.startRound();
+    }
   }
 
   startTurn() {
