@@ -8,9 +8,10 @@ class Turn {
   }
 
   checkGuess(guess) {
-    let index = this.round.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
+    let index = this.game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
+    console.log(this.game.currentRound.currentSurveyAnswers)
     if (index !== -1) {
-      let targetAnswer = this.round.currentSurveyAnswers.splice(index, 1)[0];
+      let targetAnswer = this.game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(targetAnswer);
     }
     this.endTurn();
@@ -22,7 +23,7 @@ class Turn {
 
   endTurn() {
     this.currentPlayer === this.game.playerOne ? this.currentPlayer = this.game.playerTwo : this.currentPlayer = this.game.playerOne;
-    if (this.round.currentSurveyAnswers.length === 0) {
+    if (this.game.currentRound.currentSurveyAnswers.length === 0) {
       this.round.endRound();
     }
   }

@@ -26,9 +26,17 @@ let currentTurn = currentRound.startRound();
 // let $playerOneNameInput = $('#player-one-name');
 // let $playerTwoNameInput = $('#player-two-name');
 
-$('#player-one-name-button').on('click', domUpdates.reassignPlayerName);
-$('#player-two-name-button').on('click', domUpdates.reassignPlayerName);
-$('#guess-button').on('click', handleGuess);
+$('#player-one-name-button').on('click', function(e) {
+  domUpdates.reassignPlayerName(e, currentGame);
+});
+$('#player-two-name-button').on('click', function(e) {
+  domUpdates.reassignPlayerName(e, currentGame);
+});
+$('#guess-button').on('click', function() {
+  domUpdates.handleGuess(currentTurn);
+  console.log(currentGame)
+  console.log(currentRound)
+});
 currentGame.startGame();
 // console.log(currentRound.startRound())
 // console.log(currentTurn)

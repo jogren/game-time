@@ -10,13 +10,15 @@ let domUpdates = {
     $('#answer-three').text(round.currentSurveyAnswers[2].answer);
   },
 
-  // handleGuess(turn) {
-  //   turn.checkGuess($('#player-answer').val());
-  //   $('#player-answer').val('');
-  //   populateQuestionsAndAnswers();
-  // },
+  handleGuess(turn) {
+    turn.checkGuess($('#player-answer').val());
+    $('#player-answer').val('');
+    if(turn.game.currentRound.currentSurveyAnswers.length === 0) {
+      this.populateQuestionsAndAnswers(turn.round);  
+    }
+  },
 
-  reassignPlayerName(e) {
+  reassignPlayerName(e, currentGame) {
     if(e.target.id === 'player-one-name-button') {
       currentGame.playerOne.name = $('#player-one-name').val();
     } else {
