@@ -2,27 +2,29 @@ import domUpdates from './domUpdates';
 
 class Turn {
   constructor(game) {
-    this.game = game;
-    this.currentPlayer = this.game.playerOne;
+    this.currentPlayer = game.playerOne;
+    console.log(game, this.currentPlayer)
   }
 
-  checkGuess(guess) {
-    let index = this.game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
+  checkGuess(game, guess) {
+    let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
-      let targetAnswer = this.game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
+      let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(targetAnswer);
     }
-    this.endTurn();
+    this.endTurn(game);
   }
 
   assignPoints(targetAnswer) {
+    
     this.currentPlayer.score += targetAnswer.respondents * this.currentPlayer.multiplier;
   }
 
-  endTurn() {
-    this.currentPlayer === this.game.playerOne ? this.currentPlayer = this.game.playerTwo : this.currentPlayer = this.game.playerOne;
-    if (this.game.currentRound.currentSurveyAnswers.length === 0) {
-      this.game.currentRound.endRound();
+  endTurn(game) {
+    this.currentPlayer === game.playerOne ? this.currentPlayer = game.playerTwo : this.currentPlayer = game.playerOne;
+    if (game.currentRound.currentSurveyAnswers.length === 0) {
+      game.currentRound.endRound(game);
+      domUpdates.populateQuestionsAndAnswers(game.currentRound);
     }
   }
 }

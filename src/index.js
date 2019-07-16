@@ -13,10 +13,9 @@ import domUpdates from './domUpdates';
 // import './images/turing-logo.png';
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+// console.log('This is the JavaScript entry file - your code begins here.');
 
 let currentGame = new Game(data.surveys, data.answers);
-currentGame.currentRound.startRound();
 currentGame.startGame();
 console.log(currentGame);
 
@@ -35,7 +34,7 @@ $('#player-two-name-button').on('click', function(e) {
   domUpdates.reassignPlayerName(e, currentGame);
 });
 $('#guess-button').on('click', function() {
-  domUpdates.handleGuess(currentGame.currentRound.currentTurn);
+  domUpdates.handleGuess(currentGame);
 });
 
 // $surveyQuestion.text(currentRound.currentSurvey.question);

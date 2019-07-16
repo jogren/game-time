@@ -6,14 +6,28 @@ class Game {
   constructor(allSurveys, allAnswers, player1Name = 'Player 1', player2Name = 'Player 2') {
     this.allSurveys = allSurveys;
     this.allAnswers = allAnswers;
-    this.gameIds;  
-    this.currentRound = new Round(this, this.pickSurveys(), this.pickAnswers());
+    this.gameIds;
+    this.roundCounter = 0;
+    this.currentSurveys = this.pickSurveys()
+    this.currentAnswers = this.pickAnswers()  
     this.playerOne = new Player(player1Name)
     this.playerTwo = new Player(player2Name)
+    this.currentRound = new Round(this, this.currentSurveys[this.roundCounter], this.setCurrentRoundAnswers());
+    
   }
 
   startGame() {
     domUpdates.populateQuestionsAndAnswers(this.currentRound);
+  }
+
+  setCurrentRoundAnswers() {
+    console.log(this.currentSurveys)
+    return this.currentAnswers.filter(answer => answer.surveyId === this.currentSurveys[this.roundCounter].id);
+  
+  }
+
+  startNewRound() {
+    this.currentRound = new Round(this, this.currentSurveys[this.roundCounter], this.setCurrentRoundAnswers());  
   }
 
   pickSurveys() {
