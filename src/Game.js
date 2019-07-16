@@ -7,15 +7,13 @@ class Game {
     this.allSurveys = allSurveys;
     this.allAnswers = allAnswers;
     this.gameIds;  
-    this.currentRound;
+    this.currentRound = new Round(this, this.pickSurveys(), this.pickAnswers());
     this.playerOne = new Player(player1Name)
     this.playerTwo = new Player(player2Name)
   }
 
   startGame() {
-    this.currentRound = new Round(this, this.pickSurveys(), this.pickAnswers());
     domUpdates.populateQuestionsAndAnswers(this.currentRound);
-    return this.currentRound;
   }
 
   pickSurveys() {

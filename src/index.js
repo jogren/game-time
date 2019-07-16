@@ -16,8 +16,10 @@ import domUpdates from './domUpdates';
 console.log('This is the JavaScript entry file - your code begins here.');
 
 let currentGame = new Game(data.surveys, data.answers);
-let currentRound = currentGame.startGame();
-let currentTurn = currentRound.startRound();
+currentGame.currentRound.startRound();
+currentGame.startGame();
+console.log(currentGame);
+
 
 // let $surveyQuestion = $('#survey-question');
 // let $answerOne = $('#answer-one');
@@ -33,15 +35,8 @@ $('#player-two-name-button').on('click', function(e) {
   domUpdates.reassignPlayerName(e, currentGame);
 });
 $('#guess-button').on('click', function() {
-  domUpdates.handleGuess(currentTurn);
-  console.log(currentGame)
-  console.log(currentRound)
+  domUpdates.handleGuess(currentGame.currentRound.currentTurn);
 });
-currentGame.startGame();
-// console.log(currentRound.startRound())
-// console.log(currentTurn)
-// console.log(currentRound.currentSurveyAnswers)
-// console.log(currentGame.playerOne, currentGame.playerTwo)
 
 // $surveyQuestion.text(currentRound.currentSurvey.question);
 

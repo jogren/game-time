@@ -3,7 +3,7 @@ import $ from 'jquery';
 let domUpdates = {
   populateQuestionsAndAnswers(round) {
     $('#survey-question').text(round.currentSurvey.question);
-    round.startRound();
+    // round.startRound();
     round.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(round.currentSurveyAnswers[0].answer);
     $('#answer-two').text(round.currentSurveyAnswers[1].answer);
@@ -13,8 +13,9 @@ let domUpdates = {
   handleGuess(turn) {
     turn.checkGuess($('#player-answer').val());
     $('#player-answer').val('');
-    if(turn.game.currentRound.currentSurveyAnswers.length === 0) {
-      this.populateQuestionsAndAnswers(turn.round);  
+    console.log(turn.game.currentRound.currentSurveyAnswers.length  )
+    if(turn.game.currentRound.currentSurveyAnswers.length === 3) {
+      this.populateQuestionsAndAnswers(turn.game.currentRound);  
     }
   },
 

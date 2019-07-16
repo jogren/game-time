@@ -10,12 +10,14 @@ class Round {
     this.counter = 0;
     this.currentSurvey = this.surveys[this.counter]
     this.currentSurveyAnswers;
+    this.currentTurn = this.startTurn();
   }
 
   startRound() {
-    this.currentSurvey = this.surveys[this.counter]
+    this.currentSurvey = this.surveys[this.counter];
+    console.log('startRound this', this)
     this.setCurrentSurveyAnswers();
-  	return this.startTurn();
+  	this.startTurn();
   }
 
   endRound() {
@@ -28,8 +30,8 @@ class Round {
   }
 
   startTurn() {
-  	let currentTurn = new Turn(this.game, this);
-  	return currentTurn;
+  	this.currentTurn = new Turn(this.game, this);
+  	return this.currentTurn;
   }
 
   setCurrentSurveyAnswers() {
