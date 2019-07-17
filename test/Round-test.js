@@ -10,7 +10,7 @@ const expect = chai.expect;
 const spy = chai.spy();
 
 let currentGame = new Game(data.surveys, data.answers);
-currentGame.startGame();
+let currentRound = currentGame.currentRound;
 
 describe('Round', function() {
 
@@ -20,7 +20,7 @@ describe('Round', function() {
 	// });
 
 	it('should be an instance of Round', function() {
-		expect(currentGame.currentRound).to.be.an.instanceOf(Round);
+		expect(currentRound).to.be.an.instanceOf(Round);
 	});
 
 	describe('endRound', function() {

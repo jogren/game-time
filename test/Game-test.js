@@ -26,8 +26,7 @@ describe('Game', function() {
     });
     it('should fire populateQuestionsAndAnswers to update DOM', function() {
       game.startGame();
-      // add a spy here on domUpdates.populateQuestionsAndAnswers(game.currentRound)
-      expect(domUpdates.populateQuestionsAndAnswers).to.have.been.called(2)
+      expect(domUpdates.populateQuestionsAndAnswers).to.have.been.called(1)
     });
     it('should instantiate two players', function() {
       game.startGame();
