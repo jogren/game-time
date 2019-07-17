@@ -39,6 +39,7 @@ class Game {
     this.gameIds = Array.from(new Set(randomIds)).slice(0, 3)
 
     return this.gameIds.map(id => {
+      console.log(this.allSurveys)
       return this.allSurveys.find(survey => survey.id === id)
     })
   }

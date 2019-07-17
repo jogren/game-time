@@ -15,6 +15,7 @@ import domUpdates from './domUpdates';
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 
+<<<<<<< Updated upstream
 let currentGame = new Game(data.surveys, data.answers);
 currentGame.startGame();
 console.log(currentGame);
@@ -36,6 +37,52 @@ $('#player-two-name-button').on('click', function(e) {
 $('#guess-button').on('click', function() {
   domUpdates.handleGuess(currentGame);
 });
+=======
+let dataSurveys; 
+let dataAnswers; 
+let currentGame;
+
+// let currentRound;
+// let currentTurn;
+
+fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
+  .then(response => response.json())
+  .then(dataset => {
+  	dataSurveys = dataset.data.surveys;
+  	dataAnswers = dataset.data.answers;
+  })
+  .catch(error => console.log(error))
+
+// let currentGame = new Game(data.surveys, data.answers);
+
+function checkFetch () {
+	if (!dataSurveys || !dataAnswers) {
+		checkFetch()
+	} else {
+		currentGame = new Game(dataSurveys, dataAnswers)
+		currentGame.startGame();
+		// currentRound = currentGame.startGame();
+		// currentTurn = currentRound.startRound();
+	}
+}
+ 
+$('#player-name-button').on('click', () => {
+	checkFetch();
+	domUpdates.reassignPlayerName(currentGame);
+	console.log(currentGame);
+});
+
+$('#guess-button').on('click', () => {
+	domUpdates.handleGuess(currentTurn);
+	domUpdates.populateQuestionsAndAnswers(currentRound);
+});
+
+// currentGame.startGame();
+// console.log(currentRound.startRound())
+// console.log(currentTurn)
+// console.log(currentRound.currentSurveyAnswers)
+// console.log(currentGame.playerOne, currentGame.playerTwo)
+>>>>>>> Stashed changes
 
 // $surveyQuestion.text(currentRound.currentSurvey.question);
 

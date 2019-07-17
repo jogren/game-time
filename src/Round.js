@@ -14,19 +14,19 @@ class Round {
     game.roundCounter++;
     if (game.roundCounter === 2) {
       console.log('you are done playing two rounds')
-     this.startFastMoneyRound();
-    } else {
-      game.startNewRound();
-    }
-  }
-
+     	this.startFastMoneyTurn();
+		} else {
+		  game.startNewRound();
+	 	}
+ 	}
+   
   startTurn(game) {
     this.currentTurn = new Turn(game);
     console.log(this.currentTurn, 'inside round startTurn()')
   	return this.currentTurn;
   }
 
-  startFastMoneyRound() {
+  startFastMoneyTurn() {
 
   }
 
