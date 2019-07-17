@@ -10,29 +10,14 @@ let domUpdates = {
     $('#answer-three').text(round.currentSurveyAnswers[2].answer);
   },
 
-<<<<<<< Updated upstream
   handleGuess(game) {
     game.currentRound.currentTurn.checkGuess(game, $('#player-answer').val());
-    $('#player-answer').val('');
-    console.log(game.currentRound.currentSurveyAnswers.length)
-  },
-
-  reassignPlayerName(e, game) {
-    if(e.target.id === 'player-one-name-button') {
-      game.playerOne.name = $('#player-one-name').val();
-    } else {
-      game.playerTwo.name = $('#player-two-name').val();
-    }
-=======
-  handleGuess(turn) {
-    turn.checkGuess($('#player-answer').val());
     $('#player-answer').val('');
   },
 
   reassignPlayerName(game) {
-      game.playerOne.name = $('#player-one-name').val();
-      game.playerTwo.name = $('#player-two-name').val();
->>>>>>> Stashed changes
+    game.playerOne.name = $('#player-one-name').val();
+    game.playerTwo.name = $('#player-two-name').val();
   }
 
 }

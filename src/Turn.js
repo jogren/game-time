@@ -3,7 +3,6 @@ import domUpdates from './domUpdates';
 class Turn {
   constructor(game) {
     this.currentPlayer = game.playerOne;
-    console.log(game, this.currentPlayer)
   }
 
   checkGuess(game, guess) {
@@ -16,7 +15,6 @@ class Turn {
   }
 
   assignPoints(targetAnswer) {
-    
     this.currentPlayer.score += targetAnswer.respondents * this.currentPlayer.multiplier;
   }
 

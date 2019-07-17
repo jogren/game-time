@@ -21,9 +21,7 @@ class Game {
   }
 
   setCurrentRoundAnswers() {
-    console.log(this.currentSurveys)
     return this.currentAnswers.filter(answer => answer.surveyId === this.currentSurveys[this.roundCounter].id);
-  
   }
 
   startNewRound() {
@@ -39,7 +37,6 @@ class Game {
     this.gameIds = Array.from(new Set(randomIds)).slice(0, 3)
 
     return this.gameIds.map(id => {
-      console.log(this.allSurveys)
       return this.allSurveys.find(survey => survey.id === id)
     })
   }

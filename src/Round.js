@@ -22,7 +22,6 @@ class Round {
    
   startTurn(game) {
     this.currentTurn = new Turn(game);
-    console.log(this.currentTurn, 'inside round startTurn()')
   	return this.currentTurn;
   }
 
