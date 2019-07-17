@@ -23,18 +23,12 @@ describe('Game', function() {
   it('should hold on to all survey answers', function() {
     expect(game.allAnswers).to.equal(data.answers);
   });
-  it('should keep track of rounds played', function() {
-    // new Game stores roundCounter
-  });
   it('should store a new instance of round', function() {
-    // new Game instantiates a new Round 
+    expect(game.currentRound).to.be.an.instanceOf(Round);
   })
   it('should fire populateQuestionsAndAnswers to update DOM', function() {
     game.startGame();
     expect(domUpdates.populateQuestionsAndAnswers).to.have.been.called(1)
-  });
-  it('should filter out an array of the current round\'s survey answers', function() {
-    //setCurrentRoundAnswers() finds 3 answers from allAnswers to match the current survey
   });
   it('should instantiate two players', function() {
     expect(game.playerOne).to.be.an.instanceOf(Player);
