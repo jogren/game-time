@@ -8,24 +8,26 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 
-chai.spy.on(domUpdates, ['populateQuestionsAndAnswers'], () => {});
-
 let game = new Game(data.surveys, data.answers, 'Joe', 'Sarah')
 
+chai.spy.on(domUpdates, ['populateQuestionsAndAnswers'], () => {});
+
 describe('Game', function() {
+
   it('should create new instances of Game', function() {
     expect(game).to.be.an.instanceOf(Game);
   });
   describe('startGame', function() {
-    it('should hold on to surveys', function() {
+    it('should hold on to all surveys', function() {
       expect(game.allSurveys).to.equal(data.surveys);
     });
-    it('should hold on to survey answers', function() {
+    it('should hold on to all survey answers', function() {
       expect(game.allAnswers).to.equal(data.answers);
     });
-    it('should start a round', function() {
+    it('should fire populateQuestionsAndAnswers to update DOM', function() {
       game.startGame();
-      expect(game.currentRound).to.be.an.instanceOf(Round);
+      // add a spy here on domUpdates.populateQuestionsAndAnswers(game.currentRound)
+      expect(domUpdates.populateQuestionsAndAnswers).to.have.been.called(2)
     });
     it('should instantiate two players', function() {
       game.startGame();
