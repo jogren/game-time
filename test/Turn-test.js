@@ -13,7 +13,6 @@ var turn, currentGame, turn
 describe('Turn', () => {
   beforeEach(() => {
     currentGame = new Game(data.surveys, data.answers);
-    currentGame.startGame();
     turn = currentGame.currentRound.currentTurn;
     currentGame.currentRound.currentSurveyAnswers = [{ answer: 'Alarm Clock', respondents: 34, surveyId: 3 }, { answer: 'Beer', respondents: 67, surveyId: 1 }, { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }]
   });

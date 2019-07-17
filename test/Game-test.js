@@ -17,22 +17,28 @@ describe('Game', function() {
   it('should create new instances of Game', function() {
     expect(game).to.be.an.instanceOf(Game);
   });
-  describe('startGame', function() {
-    it('should hold on to all surveys', function() {
-      expect(game.allSurveys).to.equal(data.surveys);
-    });
-    it('should hold on to all survey answers', function() {
-      expect(game.allAnswers).to.equal(data.answers);
-    });
-    it('should fire populateQuestionsAndAnswers to update DOM', function() {
-      game.startGame();
-      expect(domUpdates.populateQuestionsAndAnswers).to.have.been.called(1)
-    });
-    it('should instantiate two players', function() {
-      game.startGame();
-      expect(game.playerOne).to.be.an.instanceOf(Player);
-      expect(game.playerTwo).to.be.an.instanceOf(Player);
-    });
+  it('should hold on to all surveys', function() {
+    expect(game.allSurveys).to.equal(data.surveys);
+  });
+  it('should hold on to all survey answers', function() {
+    expect(game.allAnswers).to.equal(data.answers);
+  });
+  it('should keep track of rounds played', function() {
+    // new Game stores roundCounter
+  });
+  it('should store a new instance of round', function() {
+    // new Game instantiates a new Round 
+  })
+  it('should fire populateQuestionsAndAnswers to update DOM', function() {
+    game.startGame();
+    expect(domUpdates.populateQuestionsAndAnswers).to.have.been.called(1)
+  });
+  it('should filter out an array of the current round\'s survey answers', function() {
+    //setCurrentRoundAnswers() finds 3 answers from allAnswers to match the current survey
+  });
+  it('should instantiate two players', function() {
+    expect(game.playerOne).to.be.an.instanceOf(Player);
+    expect(game.playerTwo).to.be.an.instanceOf(Player);
   });
   it('should pick 3 random surveys and their answers', function() {
     expect(game.pickSurveys().length).to.equal(3);
