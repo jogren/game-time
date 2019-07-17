@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <link rel="stylesheet" type="text/css" href="base.scss">
     <title>GameTime!</title>
   </head>
   <body>
-    <h1>Family Feud</h1>
-    <h2>Survey</h2>
-    <img src="https://ui-ex.com/images/x-transparent-family-feud-5.png">
-    <time datetime="00:00:30">Timer</time>
-    <section>
+    <header>
+      <time datetime="00:00:30">Timer</time>
+      <h1>Family Feud</h1>
+      <img src="https://ui-ex.com/images/x-transparent-family-feud-5.png">
+    </header>
+    <section class="section--game-play">
     	<h3 id="survey-question"></h3>
 	  	<output id="answer-one">
 	  	</output>
@@ -17,25 +19,27 @@
 	  	<output id="answer-three">
 	  	</output>
   	</section>
-  	<div id="player-one">
-  		<label for="player-one-name">Player One Name</label>
-  		<input type="text" id="player-one-name">
-  		<input type="button" for="player-one-name" id="player-one-name-button">
-  		<p id="player-one-points"></p>
-  	</div>
-  	<form id="player-answers">
-  		<fieldset>
-  			<legend>Player Answers</legend>
-  			<label for="player-answer">Answer!</label>
-  			<input type="text" id="player-answer" placeholder="Current Answer">
-  			<input type="button" for="player-answers" id="guess-button">
-  		</fieldset>
-  	</form>
-  	<div id="player-two">
-  		<label for="player-two-name">Player Two Name</label>
-  		<input type="text" id="player-two-name">
-  		<input type="button" for="player-two-name" id="player-two-name-button">
-  		<p id="player-two-points"></p>
-  	</div>
+    <section class="section--players">
+    	<div class="player" id="player-one">
+    		<label for="player-one-name">Player One Name</label>
+    		<input type="text" id="player-one-name">
+    		<input type="button" for="player-one-name" id="player-one-name-button">
+    		<p id="player-one-points"></p>
+    	</div>
+    	<form id="player-answers">
+    		<fieldset>
+    			<legend>Player Answers</legend>
+    			<label for="player-answer">Answer!</label>
+    			<input type="text" id="player-answer" placeholder="Current Answer">
+    			<input type="button" for="player-answers" id="guess-button">
+    		</fieldset>
+    	</form>
+    	<div class="player" id="player-two">
+    		<label for="player-two-name">Player Two Name</label>
+    		<input type="text" id="player-two-name">
+    		<input type="button" for="player-two-name" id="player-two-name-button">
+    		<p id="player-two-points"></p>
+    	</div>
+    </section>
   </body>
 </html>
