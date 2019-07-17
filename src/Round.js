@@ -1,6 +1,7 @@
 import Player from './Player.js';
 import Turn from './Turn.js';
 import Game from './Game.js';
+import FastMoneyTurn from './FastMoneyTurn.js';
 
 class Round {
   constructor(game, survey, answers) {
@@ -27,7 +28,7 @@ class Round {
   }
 
   startFastMoneyTurn() {
-
+    this.currentTurn = new FastMoneyTurn();
   }
 
 }
