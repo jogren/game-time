@@ -26,7 +26,7 @@ describe('Turn', () => {
     chai.spy.on(turn, ['assignPoints'], () => {});
       turn.checkGuess(currentGame, 'Beer');
       expect(turn.assignPoints).to.have.been.called(1);
-    })
+    }).j
 
     it('should fire endTurn on guess', () => {
     chai.spy.on(turn, ['endTurn'], () => {});
@@ -47,18 +47,18 @@ describe('Turn', () => {
 
   describe('assignPoints', () => {
     it('should assign points for correct guess', () => {
-      turn.assignPoints({ answer: 'Alarm Clock', respondents: 34, surveyId: 3 });
+      turn.assignPoints(currentGame, { answer: 'Alarm Clock', respondents: 34, surveyId: 3 });
       expect(currentGame.playerOne.score).to.equal(34);
     })
   })
 
   describe('endTurn', () => {
     it('should toggle player after guess', () => {
-      expect(turn.currentPlayer).to.eql(currentGame.playerOne);
+      expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerOne);
       turn.endTurn(currentGame);
-      expect(turn.currentPlayer).to.eql(currentGame.playerTwo);
+      expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerTwo);
       turn.endTurn(currentGame);
-      expect(turn.currentPlayer).to.eql(currentGame.playerOne);
+      expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerOne);
     })
   })
 })

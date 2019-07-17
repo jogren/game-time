@@ -7,7 +7,8 @@ class Round {
     this.game = game;
     this.currentSurvey = survey;
     this.currentSurveyAnswers = answers;
-    this.currentTurn = this.startTurn(game);
+    this.currentTurn = this.startTurn();
+    this.currentPlayer = game.playerOne
   }
 
   endRound(game) {
@@ -20,8 +21,8 @@ class Round {
 	 	}
  	}
    
-  startTurn(game) {
-    this.currentTurn = new Turn(game);
+  startTurn() {
+    this.currentTurn = new Turn();
   	return this.currentTurn;
   }
 
