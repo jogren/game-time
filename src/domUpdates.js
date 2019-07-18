@@ -1,27 +1,32 @@
 import $ from 'jquery';
 
 let domUpdates = {
+
   populateQuestionsAndAnswers(round) {
     $('#survey-question').text(round.currentSurvey.question);
-    round.startRound();
     round.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(round.currentSurveyAnswers[0].answer);
     $('#answer-two').text(round.currentSurveyAnswers[1].answer);
     $('#answer-three').text(round.currentSurveyAnswers[2].answer);
   },
 
-  // handleGuess(turn) {
-  //   turn.checkGuess($('#player-answer').val());
-  //   $('#player-answer').val('');
-  //   populateQuestionsAndAnswers();
-  // },
+  handleGuess(game) {
+    game.currentRound.currentTurn.checkGuess(game, $('#player-answer').val());
+    $('#player-answer').val('');
+  },
 
-  reassignPlayerName(e) {
-    if(e.target.id === 'player-one-name-button') {
-      currentGame.playerOne.name = $('#player-one-name').val();
-    } else {
-      currentGame.playerTwo.name = $('#player-two-name').val();
-    }
+  reassignPlayerName(game) {
+    game.playerOne.name = $('#player-one-name').val();
+    game.playerTwo.name = $('#player-two-name').val();
+  },
+
+  handleHidingAndShowingElements() {
+    $('#player-answers').show();
+    $('#start-game-button').hide();
+    $('#player-one-name').hide();
+    $('#player-two-name').hide();
+    $('label').hide();
+
   }
 }
 

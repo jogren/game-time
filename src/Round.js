@@ -1,43 +1,34 @@
 import Player from './Player.js';
 import Turn from './Turn.js';
 import Game from './Game.js';
+import FastMoneyTurn from './FastMoneyTurn.js';
 
 class Round {
-  constructor(game, surveys, answers) {
-    this.game = game;
-    this.surveys = surveys;
-    this.answers = answers;
-    this.counter = 0;
-    this.currentSurvey = this.surveys[this.counter]
-    this.currentSurveyAnswers;
+  constructor(game, survey, answers) {
+    this.currentSurvey = survey;
+    this.currentSurveyAnswers = answers;
+    this.currentTurn = this.startTurn();
+    this.currentPlayer = game.playerOne;
   }
 
-  startRound() {
-    this.currentSurvey = this.surveys[this.counter]
-    this.setCurrentSurveyAnswers();
-  	return this.startTurn();
-  }
-
-  endRound() {
-    this.counter++;
-    if (this.counter === 2) {
-     this.startFastMoneyRound();
-    } else {
-      this.startRound();
-    }
-  }
-
+  endRound(game) {
+    game.roundCounter++;
+    if (game.roundCounter >= 2) {
+     	this.startFastMoneyTurn(game);
+		} else {
+		  game.startNewRound();
+	 	}
+ 	}
+   
   startTurn() {
-  	let currentTurn = new Turn(this.game, this);
-  	return currentTurn;
+    this.currentTurn = new Turn();
+  	return this.currentTurn;
   }
 
-  setCurrentSurveyAnswers() {
-  	this.currentSurveyAnswers = this.answers.filter(answer => answer.surveyId === this.surveys[this.counter].id);
-  }
-
-  startFastMoneyRound() {
-
+  startFastMoneyTurn(game) {
+    game.startNewRound();
+    game.currentRound.currentTurn = new FastMoneyTurn();
+    console.log(game.currentRound);
   }
 
 }

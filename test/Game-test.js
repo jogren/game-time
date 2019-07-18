@@ -8,33 +8,34 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 
-chai.spy.on(domUpdates, ['populateQuestionsAndAnswers'], () => {});
-
 let game = new Game(data.surveys, data.answers, 'Joe', 'Sarah')
 
+chai.spy.on(domUpdates, ['populateQuestionsAndAnswers'], () => {});
+
 describe('Game', function() {
+
   it('should create new instances of Game', function() {
     expect(game).to.be.an.instanceOf(Game);
   });
-  describe('startGame', function() {
-    it('should hold on to surveys', function() {
-      expect(game.allSurveys).to.equal(data.surveys);
-    });
-    it('should hold on to survey answers', function() {
-      expect(game.allAnswers).to.equal(data.answers);
-    });
-    it('should start a round', function() {
-      game.startGame();
-      expect(game.currentRound).to.be.an.instanceOf(Round);
-    });
-    it('should instantiate two players', function() {
-      game.startGame();
-      expect(game.playerOne).to.be.an.instanceOf(Player);
-      expect(game.playerTwo).to.be.an.instanceOf(Player);
-    });
+  it('should hold on to all surveys', function() {
+    expect(game.allSurveys).to.equal(data.surveys);
   });
-  it('should pick 3 random surveys and their answers', function() {
-    expect(game.pickSurveys().length).to.equal(3);
+  it('should hold on to all survey answers', function() {
+    expect(game.allAnswers).to.equal(data.answers);
+  });
+  it('should store a new instance of round', function() {
+    expect(game.currentRound).to.be.an.instanceOf(Round);
+  })
+  it('should fire populateQuestionsAndAnswers to update DOM', function() {
+    game.startGame();
+    expect(domUpdates.populateQuestionsAndAnswers).to.have.been.called(1)
+  });
+  it('should instantiate two players', function() {
+    expect(game.playerOne).to.be.an.instanceOf(Player);
+    expect(game.playerTwo).to.be.an.instanceOf(Player);
+  });
+  it('should pick 4 random surveys and their answers', function() {
+    expect(game.pickSurveys().length).to.equal(4);
   });
   describe('endGame()', function() {
     it('should determine winner at end of game', function() {

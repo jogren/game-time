@@ -1,61 +1,75 @@
-import data from '../src/dataset.js';
+import data from '../src/dataset';
 import chai from 'chai';
-// import spies from 'chai-spies';
-import Game from '../src/Game.js';
-import Round from '../src/Round.js';
-import Player from '../src/Player.js';
-import Turn from '../src/Turn.js';
+import spies from 'chai-spies';
+import Game from '../src/Game';
+import Round from '../src/Round';
+import Player from '../src/Player';
+import Turn from '../src/Turn';
+import FastMoneyTurn from '../src/FastMoneyTurn';
 
 const expect = chai.expect;
-// const spy = chai.spy();
+const spy = chai.spy();
 
-let currentGame = new Game(data.surveys, data.answers);
-currentGame.startGame();
-let currentRound = currentGame.currentRound;
+let currentGame, currentRound, currentTurn, currentFastMoneyTurn;
+
+global.testGame = {};
+
+chai.spy.on(testGame, ['startNewRound'], () => {});
 
 describe('Round', function() {
-
-	// beforeEach(function() {
-		// testSurveys = data.surveys.filter(survey => survey.id < 4);
-		// testAnswers = data.answers.filter(answer => testSurveys.some(survey => survey.id === answer.surveyId));
-	
-	// });
-
-	// it('should be a function', function() {
-	// 	expect(currenGam).to.be.a('function');
-	// });
+	beforeEach(function() {
+		currentGame = new Game(data.surveys, data.answers);
+		currentRound = currentGame.currentRound;
+		currentTurn = new Turn();
+		currentFastMoneyTurn = new FastMoneyTurn();
+	});
 
 	it('should be an instance of Round', function() {
-		expect(currentGame.currentRound).to.be.an.instanceOf(Round);
+		expect(currentRound).to.be.an.instanceOf(Round);
 	});
-
-	describe('startRound', function() {
-		// it('should start a new Turn', function() {
-		// 	spy.on(currentRound.startRound()).to.
-		// });
-
-		it('should return the current survey question', function() {
-			expect(currentRound.surveys[0].id).to.eql(currentGame.gameIds[0]);
-			currentRound.endRound();
-			expect(currentRound.surveys[1].id).to.eql(currentGame.gameIds[1])
-		});
-	});
-
 
 	describe('endRound', function() {
-		it('should increment the counter', function() {
-			let anotherGame = new Game(data.surveys, data.answers);
-			anotherGame.startGame();
-			let anotherRound = anotherGame.currentRound
-			expect(anotherRound.counter).to.equal(0);
-			anotherRound.endRound();
-			expect(anotherRound.counter).to.equal(1)
+		it('should increment the round counter', function() {
+			expect(currentGame.roundCounter).to.equal(0);
+			currentGame.currentRound.endRound(currentGame);
+			expect(currentGame.roundCounter).to.equal(1);
+			currentGame.currentRound.endRound(currentGame)
 		});
 
-		// it('should invoke startRound if the counter is less than two', function() {
-		// 	expect(currentRound.endRound()).to.eql({ id: 3, question: 'Name A Good Gift For Someone Who Is Always Late.' });
-		// });
+		it('should invoke startNewRound if the counter is less than two', function() {
+			currentRound.endRound(testGame);
+			expect(testGame.startNewRound).to.have.been.called(1);
+		});
+
+		it('should invoke startFastMoneyTurn if the counter is two', function() {
+			let testRound = new Round(currentGame.currentRound);
+			chai.spy.on(testRound, ['startFastMoneyTurn'], () => {});
+			testRound.endRound(currentGame);
+			testRound.endRound(currentGame);
+			expect(testRound.startFastMoneyTurn).to.have.been.called(1);
+			currentRound.endRound(currentGame);
+			currentRound.endRound(currentGame);
+			expect(currentRound.currentTurn).to.be.an.instanceOf(FastMoneyTurn);
+		});
 	});
 
+	describe('startTurn', function() {
+		it('should store and return a new instance of Turn', function() {
+			currentRound.startTurn(); 
+			expect(currentRound.currentTurn).to.be.an.instanceOf(Turn);
+		});
+	});
+
+	describe('startFastMoneyTurn', function() {
+		it('should invoke startNewRound', function() {
+			currentRound.startFastMoneyTurn(testGame);
+			expect(testGame.startNewRound).to.have.been.called(2);
+		});
+
+		it('should reassign the current turn to a new FastMoneyTurn', function() {
+			currentRound.startFastMoneyTurn(testGame);
+			expect(currentRound.currentTurn).to.be.an.instanceOf(FastMoneyTurn);
+		});
+	});
 
 })

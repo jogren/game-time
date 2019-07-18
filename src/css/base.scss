@@ -1,6 +1,72 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: blanchedalmond;
+$primary-background: linear-gradient(90deg, #16295E, #002EFF, #16295E);
 
 body {
-  background-color: $primary-background;
+  background: $primary-background;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto Slab', serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+	font-size: 72px;
+	background: -webkit-linear-gradient(#FF4500, #FFAE42);
+	 -webkit-background-clip: text;
+	 -webkit-text-fill-color: transparent;
+}
+
+img {
+  height: 100px;
+  width: 100px
+}
+
+time {
+  width: 100px;
+}
+
+.section--game-play {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+}
+
+h3 {
+  text-align: left;
+}
+
+output {
+  text-align: left;
+  padding: 10px;
+}
+
+.section--players {
+  display: flex;
+  justify-content: space-around;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border: 0;
+}
+
+input[type=text] {
+  height: 25px;
+  width: 150px;
+}
+
+input[type=button] {
+  height: 70px;
+  width: 150px;
 }
