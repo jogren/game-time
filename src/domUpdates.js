@@ -22,11 +22,7 @@ let domUpdates = {
 
   handleHidingAndShowingElements() {
     $('#player-answers').show();
-    $('#start-game-button').hide();
-    $('#player-one-name').hide();
-    $('#player-two-name').hide();
-    $('label').hide();
-
+    $('#start-game-button, #player-one-name, #player-two-name, label').hide();
   }
 }
 

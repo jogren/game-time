@@ -21,12 +21,22 @@ class Turn {
   }
 
   endTurn(game) {
-    game.currentRound.currentPlayer === game.playerOne ? game.currentRound.currentPlayer = game.playerTwo : game.currentRound.currentPlayer = game.playerOne;
-    if (game.currentRound.currentSurveyAnswers.length === 0) {
+  	this.switchPlayer(game);
+    if (!game.currentRound.currentSurveyAnswers.length) {
       game.currentRound.endRound(game);
       domUpdates.populateQuestionsAndAnswers(game.currentRound);
     }
   }
+
+  switchPlayer(game) {
+  	if (game.currentRound.currentPlayer === game.playerOne) {
+  		game.currentRound.currentPlayer = game.playerTwo;
+  	} else {
+  		game.currentRound.currentPlayer = game.playerOne;
+  	}
+  }
+
 }
+
 
 export default Turn;
