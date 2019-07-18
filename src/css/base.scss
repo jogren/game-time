@@ -1,15 +1,23 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: blanchedalmond;
+$primary-background: linear-gradient(90deg, #16295E, #002EFF, #16295E);
 
 body {
-  background-color: $primary-background;
+  background: $primary-background;
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto Slab', serif;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+}
+
+h1 {
+	font-size: 72px;
+	background: -webkit-linear-gradient(#FF4500, #FFAE42);
+	 -webkit-background-clip: text;
+	 -webkit-text-fill-color: transparent;
 }
 
 img {
