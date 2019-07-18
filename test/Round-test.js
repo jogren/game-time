@@ -42,6 +42,11 @@ describe('Round', function() {
 		});
 
 		it('should invoke startFastMoneyTurn if the counter is two', function() {
+			let testRound = new Round(currentGame.currentRound);
+			chai.spy.on(testRound, ['startFastMoneyTurn'], () => {});
+			testRound.endRound(currentGame);
+			testRound.endRound(currentGame);
+			expect(testRound.startFastMoneyTurn).to.have.been.called(1);
 			currentRound.endRound(currentGame);
 			currentRound.endRound(currentGame);
 			expect(currentRound.currentTurn).to.be.an.instanceOf(FastMoneyTurn);

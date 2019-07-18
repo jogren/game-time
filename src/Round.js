@@ -5,16 +5,15 @@ import FastMoneyTurn from './FastMoneyTurn.js';
 
 class Round {
   constructor(game, survey, answers) {
-    this.game = game;
     this.currentSurvey = survey;
     this.currentSurveyAnswers = answers;
     this.currentTurn = this.startTurn();
-    this.currentPlayer = game.playerOne
+    this.currentPlayer = game.playerOne;
   }
 
   endRound(game) {
     game.roundCounter++;
-    if (game.roundCounter === 2) {
+    if (game.roundCounter >= 2) {
      	this.startFastMoneyTurn(game);
 		} else {
 		  game.startNewRound();
@@ -28,7 +27,8 @@ class Round {
 
   startFastMoneyTurn(game) {
     game.startNewRound();
-    this.currentTurn = new FastMoneyTurn();
+    game.currentRound.currentTurn = new FastMoneyTurn();
+    console.log(game.currentRound);
   }
 
 }
