@@ -18,8 +18,16 @@ let domUpdates = {
   reassignPlayerName(game) {
     game.playerOne.name = $('#player-one-name').val();
     game.playerTwo.name = $('#player-two-name').val();
-  }
+  },
 
+  handleHidingAndShowingElements() {
+    $('#player-answers').show();
+    $('#start-game-button').hide();
+    $('#player-one-name').hide();
+    $('#player-two-name').hide();
+    $('label').hide();
+
+  }
 }
 
 export default domUpdates;

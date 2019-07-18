@@ -19,9 +19,12 @@ $('#start-game-button').on('click', () => {
 	currentGame.startGame();
 	domUpdates.reassignPlayerName(currentGame);
   console.log(currentGame)
+  domUpdates.handleHidingAndShowingElements();
 });
 
 $('#guess-button').on('click', () => {
 	domUpdates.handleGuess(currentGame);
   console.log(currentGame)
 });
+
+$('#player-answers').hide();
