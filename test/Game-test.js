@@ -34,8 +34,8 @@ describe('Game', function() {
     expect(game.playerOne).to.be.an.instanceOf(Player);
     expect(game.playerTwo).to.be.an.instanceOf(Player);
   });
-  it('should pick 3 random surveys and their answers', function() {
-    expect(game.pickSurveys().length).to.equal(3);
+  it('should pick 4 random surveys and their answers', function() {
+    expect(game.pickSurveys().length).to.equal(4);
   });
   describe('endGame()', function() {
     it('should determine winner at end of game', function() {

@@ -15,8 +15,7 @@ class Round {
   endRound(game) {
     game.roundCounter++;
     if (game.roundCounter === 2) {
-      console.log('you are done playing two rounds')
-     	this.startFastMoneyTurn();
+     	this.startFastMoneyTurn(game);
 		} else {
 		  game.startNewRound();
 	 	}
@@ -27,8 +26,8 @@ class Round {
   	return this.currentTurn;
   }
 
-  startFastMoneyTurn() {
-    this.game.startNewRound();
+  startFastMoneyTurn(game) {
+    game.startNewRound();
     this.currentTurn = new FastMoneyTurn();
   }
 
