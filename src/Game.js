@@ -35,7 +35,7 @@ class Game {
       randomIds.push(randomId);
     } 
     
-    this.gameIds = Array.from(new Set(randomIds)).slice(0, 4
+    this.gameIds = Array.from(new Set(randomIds)).slice(0, 4);
     return this.gameIds.map(id => {
       return this.allSurveys.find(survey => survey.id === id);
     })
