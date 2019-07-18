@@ -8,19 +8,15 @@ import spies from 'chai-spies';
 const expect = chai.expect;
 chai.use(spies);
 
-let turn, currentGame, currentRound;
+var turn, currentGame, turn
 
 describe('Turn', () => {
   beforeEach(() => {
     currentGame = new Game(data.surveys, data.answers);
-    currentGame.startGame();
-    currentRound = currentGame.currentRound;
-    currentRound.startRound();
-    turn = currentRound.startTurn();
-    currentRound.currentSurveyAnswers = [{ answer: 'Alarm Clock', respondents: 34, surveyId: 3 }, { answer: 'Beer', respondents: 67, surveyId: 1 }, { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }]
+    turn = currentGame.currentRound.currentTurn;
+    currentGame.currentRound.currentSurveyAnswers = [{ answer: 'Alarm Clock', respondents: 34, surveyId: 3 }, { answer: 'Beer', respondents: 67, surveyId: 1 }, { answer: 'Bowling Ball', respondents: 5, surveyId: 1 }]
   });
   
-
   it('should be a function', () => {
     expect(Turn).to.be.a('function');
   });
@@ -28,41 +24,41 @@ describe('Turn', () => {
   describe('checkGuess', () => {
     it('should fire assign points on correct guess', () => {
     chai.spy.on(turn, ['assignPoints'], () => {});
-      turn.checkGuess('Beer');
+      turn.checkGuess(currentGame, 'Beer');
       expect(turn.assignPoints).to.have.been.called(1);
-    })
+    }).j
 
     it('should fire endTurn on guess', () => {
     chai.spy.on(turn, ['endTurn'], () => {});
-      turn.checkGuess('blah');
+      turn.checkGuess(currentGame, 'blah');
       expect(turn.endTurn).to.have.been.called(1);
     })
 
     it('should assign points for correct guess', () => {
-      turn.checkGuess('beer');
+      turn.checkGuess(currentGame, 'beer');
       expect(currentGame.playerOne.score).to.equal(67);
     });
 
     it('should not assign points for incorrect guess', () => {
-      turn.checkGuess('blah');
+      turn.checkGuess(currentGame, 'blah');
       expect(currentGame.playerOne.score).to.equal(0);
     })
   })
 
   describe('assignPoints', () => {
     it('should assign points for correct guess', () => {
-      turn.assignPoints({ answer: 'Alarm Clock', respondents: 34, surveyId: 3 });
+      turn.assignPoints(currentGame, { answer: 'Alarm Clock', respondents: 34, surveyId: 3 });
       expect(currentGame.playerOne.score).to.equal(34);
     })
   })
 
   describe('endTurn', () => {
     it('should toggle player after guess', () => {
-      expect(turn.currentPlayer).to.eql(currentGame.playerOne);
-      turn.endTurn();
-      expect(turn.currentPlayer).to.eql(currentGame.playerTwo);
-      turn.endTurn();
-      expect(turn.currentPlayer).to.eql(currentGame.playerOne);
+      expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerOne);
+      turn.endTurn(currentGame);
+      expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerTwo);
+      turn.endTurn(currentGame);
+      expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerOne);
     })
   })
 })
