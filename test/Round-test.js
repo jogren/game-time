@@ -12,7 +12,7 @@ const spy = chai.spy();
 
 let currentGame, currentRound, currentTurn, currentFastMoneyTurn;
 
-global.testGame = {};
+global.testGame = new Game(data.surveys, data.answers);
 
 chai.spy.on(testGame, ['startNewRound'], () => {});
 
@@ -41,15 +41,13 @@ describe('Round', function() {
 			expect(testGame.startNewRound).to.have.been.called(1);
 		});
 
-		it('should invoke startFastMoneyTurn if the counter is two', function() {
-			let testRound = new Round(currentGame.currentRound);
+		it('should invoke startFastMoneyTurn if the counter is greater than or equal to two', function() {
+			let testRound = new Round(currentGame);
+			currentGame.currentRound = testRound;
 			chai.spy.on(testRound, ['startFastMoneyTurn'], () => {});
 			testRound.endRound(currentGame);
 			testRound.endRound(currentGame);
 			expect(testRound.startFastMoneyTurn).to.have.been.called(1);
-			currentRound.endRound(currentGame);
-			currentRound.endRound(currentGame);
-			expect(currentRound.currentTurn).to.be.an.instanceOf(FastMoneyTurn);
 		});
 	});
 
@@ -68,7 +66,7 @@ describe('Round', function() {
 
 		it('should reassign the current turn to a new FastMoneyTurn', function() {
 			currentRound.startFastMoneyTurn(testGame);
-			expect(currentRound.currentTurn).to.be.an.instanceOf(FastMoneyTurn);
+			expect(testGame.currentRound.currentTurn).to.be.an.instanceOf(FastMoneyTurn);
 		});
 	});
 
