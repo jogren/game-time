@@ -3,6 +3,7 @@ import Turn from './Turn';
 
 class FastMoneyTurn extends Turn {
   constructor() {
+    super();
   }
 
   endTurn(game) {

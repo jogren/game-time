@@ -28,6 +28,7 @@ class Round {
   }
 
   startFastMoneyTurn() {
+    this.game.startNewRound();
     this.currentTurn = new FastMoneyTurn();
   }
 
