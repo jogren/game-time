@@ -1,5 +1,8 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: linear-gradient(90deg, #16295E, #002EFF, #16295E);
+$board-background: linear-gradient(#002EFF, #16295E);
+$output-background: linear-gradient(#2D57FF, #7AABFF, #3B528E);
+$section-border: 10px ridge silver;
+
 
 body {
   background: $primary-background;
@@ -13,8 +16,13 @@ header {
   justify-content: space-between;
 }
 
+title {
+  
+}
+
 h1 {
-	font-size: 72px;
+  font-weight: 700;
+	font-size: 62px;
 	background: -webkit-linear-gradient(#FF4500, #FFAE42);
 	 -webkit-background-clip: text;
 	 -webkit-text-fill-color: transparent;
@@ -29,20 +37,60 @@ time {
   width: 100px;
 }
 
-.section--game-play {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
+.game-display {
+  display: block;
+  justify-content: center;
+  height: 650px;
+  width: 900px;
   margin: auto;
+  border: 15px groove silver;
+  border-radius: 50%;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40041/bgFF.svg') #0F5899;
 }
 
 h3 {
-  text-align: left;
+  height: 35px;
+  width: 450px;
+  margin: auto;
+  border: $section-border;
+  background: black;
 }
 
-output {
-  text-align: left;
-  padding: 10px;
+.section--game-play {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 175px;
+}
+
+.game-board {
+  display: grid;
+  border: 10px solid black;
+  border-radius: 15px;
+  height: 280px;
+  width: 550px;
+  background: $board-background;
+
+  & output {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: $section-border;
+    background: $output-background;
+  }
+
+  & .number {
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid #3B528E;
+    border-radius: 50%;
+    background-color: rgba(30, 144, 255, .2);
+  }
+
 }
 
 .section--players {
@@ -58,7 +106,10 @@ output {
 fieldset {
   display: flex;
   flex-direction: column;
-  border: 0;
+}
+
+legend {
+  display: hidden;
 }
 
 input[type=text] {

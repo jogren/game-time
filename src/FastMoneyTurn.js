@@ -7,10 +7,7 @@ class FastMoneyTurn extends Turn {
   }
 
   endTurn(game) {
-    console.log('fast money end turn', game.currentRound, game.currentRound.currentPlayer)
     if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 2) {
-      console.log('I made it in here');
-      console.log('fast money round check', game.currentRound)
       game.roundCounter++;
       game.currentRound.startFastMoneyTurn(game);
       game.currentRound.currentPlayer = game.playerTwo;
