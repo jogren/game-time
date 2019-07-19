@@ -2,7 +2,6 @@ import FastMoneyTurn from '../src/FastMoneyTurn.js';
 import data from '../src/dataset.js';
 import Game from '../src/Game.js';
 import domUpdates from '../src/domUpdates.js';
-import $ from 'jquery';
 import chai from 'chai';
 import spies from 'chai-spies';
 const expect = chai.expect;
@@ -17,12 +16,13 @@ beforeEach(() => {
   currentGame = new Game(data.surveys, data.answers);
   currentRound = currentGame.currentRound;
   currentGame.currentRound.currentSurveyAnswers = [];
-})
+});
 
 describe('FastMoneyTurn', function() {
   it('should be an instance of FastMoneyTurn', function() {
     expect(fastMoneyTurn).to.be.an.instanceOf(FastMoneyTurn);
   });
+
   describe('endTurn', () => {
     it('should increment the roundCounter after a turn is over', () => {
       currentGame.roundCounter = 2;

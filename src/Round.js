@@ -29,7 +29,6 @@ class Round {
     game.startNewRound();
     game.currentRound.currentTurn = new FastMoneyTurn();
   }
-
 }
 
 export default Round;
