@@ -13,7 +13,6 @@ class Game {
     this.playerOne = new Player(player1Name)
     this.playerTwo = new Player(player2Name)
     this.currentRound = new Round(this, this.currentSurveys[this.roundCounter], this.setCurrentRoundAnswers());
-    
   }
 
   startGame() {
