@@ -20,12 +20,12 @@ $('#start-game-button').on('click', () => {
 	domUpdates.reassignPlayerName(currentGame);
 	domUpdates.handleHidingAndShowingElements();
 	$('#player-one-name, #player-two-name').show();
-	$('#player-one span').text(game.playerOne.name);
-    $('#player-two span').text(game.playerTwo.name);
-    $('#player-one-name').text(game.playerOne.name);
-    $('#player-two-name').text(game.playerTwo.name)
-    $('#player-one-points').text(game.playerOne.score);
-    $('#player-two-points').text(game.playerTwo.score);
+	$('#player-one span').text(currentGame.playerOne.name);
+    $('#player-two span').text(currentGame.playerTwo.name);
+    $('#player-one-name').text(currentGame.playerOne.name);
+    $('#player-two-name').text(currentGame.playerTwo.name)
+    $('#player-one-points').text(currentGame.playerOne.score);
+    $('#player-two-points').text(currentGame.playerTwo.score);
 });
 
 $('#guess-button').on('click', () => {
