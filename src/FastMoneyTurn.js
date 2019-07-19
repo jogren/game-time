@@ -13,7 +13,6 @@ class FastMoneyTurn extends Turn {
       game.currentRound.currentPlayer = game.playerTwo;
       domUpdates.populateQuestionsAndAnswers(game.currentRound);
     } else if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 3) {
-      console.log('endgame')
       game.endGame();
     }
   }

@@ -32,8 +32,6 @@ class Turn {
   		game.currentRound.currentPlayer = game.playerOne;
   	}
   }
-
 }
-
 
 export default Turn;

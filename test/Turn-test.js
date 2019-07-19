@@ -8,7 +8,7 @@ import spies from 'chai-spies';
 const expect = chai.expect;
 chai.use(spies);
 
-var turn, currentGame, turn
+var turn, currentGame;
 
 describe('Turn', () => {
   beforeEach(() => {
@@ -26,13 +26,13 @@ describe('Turn', () => {
     chai.spy.on(turn, ['assignPoints'], () => {});
       turn.checkGuess(currentGame, 'Beer');
       expect(turn.assignPoints).to.have.been.called(1);
-    }).j
+    });
 
     it('should fire endTurn on guess', () => {
     chai.spy.on(turn, ['endTurn'], () => {});
       turn.checkGuess(currentGame, 'blah');
       expect(turn.endTurn).to.have.been.called(1);
-    })
+    });
 
     it('should assign points for correct guess', () => {
       turn.checkGuess(currentGame, 'beer');
@@ -42,14 +42,14 @@ describe('Turn', () => {
     it('should not assign points for incorrect guess', () => {
       turn.checkGuess(currentGame, 'blah');
       expect(currentGame.playerOne.score).to.equal(0);
-    })
+    });
   })
 
   describe('assignPoints', () => {
     it('should assign points for correct guess', () => {
       turn.assignPoints(currentGame, { answer: 'Alarm Clock', respondents: 34, surveyId: 3 });
       expect(currentGame.playerOne.score).to.equal(34);
-    })
+    });
   })
 
   describe('endTurn', () => {
@@ -59,6 +59,6 @@ describe('Turn', () => {
       expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerTwo);
       turn.endTurn(currentGame);
       expect(currentGame.currentRound.currentPlayer).to.eql(currentGame.playerOne);
-    })
+    });
   })
 })

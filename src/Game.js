@@ -8,12 +8,11 @@ class Game {
     this.allAnswers = allAnswers;
     this.gameIds;
     this.roundCounter = 0;
-    this.currentSurveys = this.pickSurveys()
-    this.currentAnswers = this.pickAnswers()  
-    this.playerOne = new Player(player1Name)
-    this.playerTwo = new Player(player2Name)
+    this.currentSurveys = this.pickSurveys();
+    this.currentAnswers = this.pickAnswers(); 
+    this.playerOne = new Player(player1Name);
+    this.playerTwo = new Player(player2Name);
     this.currentRound = new Round(this, this.currentSurveys[this.roundCounter], this.setCurrentRoundAnswers());
-    
   }
 
   startGame() {
@@ -38,22 +37,22 @@ class Game {
     this.gameIds = Array.from(new Set(randomIds)).slice(0, 4);
     return this.gameIds.map(id => {
       return this.allSurveys.find(survey => survey.id === id);
-    })
+    });
   }
 
   pickAnswers(ids) {
     return this.allAnswers.filter(answer => {
       return this.gameIds.some(id => id === answer.surveyId
-      )})
+      )});
   }
 
   endGame() {
     if (this.playerOne.score === this.playerTwo.score) {
-      return 'It\'s a tie!'
+      return 'It\'s a tie!';
     }
-    return this.playerOne.score > this.playerTwo.score ? this.playerOne : this.playerTwo
+    return this.playerOne.score > this.playerTwo.score ? this.playerOne : this.playerTwo;
   }
 }
 
 
-export default Game
+export default Game;
