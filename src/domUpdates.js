@@ -12,7 +12,16 @@ let domUpdates = {
 
   handleGuess(game) {
     game.currentRound.currentTurn.checkGuess(game, $('#player-answer').val());
+    if (game.currentPlayer = game.playerOne) {
+      $('player-one').toggle('.current-turn')
+    }
     $('#player-answer').val('');
+    $('#player-one span').text(game.playerOne.name);
+    $('#player-two span').text(game.playerTwo.name);
+    $('#player-one-name').text(game.playerOne.name);
+    $('#player-two-name').text(game.playerTwo.name)
+    $('#player-one-points').text(game.playerOne.score);
+    $('#player-two-points').text(game.playerTwo.score);
   },
 
   reassignPlayerName(game) {
