@@ -6,23 +6,29 @@
     <title>GameTime!</title>
   </head>
   <body>
-    <header>
-      <time datetime="00:00:30">Timer</time>
-      <h1>FAMILY FEUD</h1>
-      <img class="img__wrong-answer" src="https://ui-ex.com/images/x-transparent-family-feud-5.png">
-    </header>
-    <section class="section--game-play">
-    	<h3 id="survey-question"></h3>
-	  	<output id="answer-one">
-	  	</output>
-	  	<output id="answer-two">
-	  	</output>
-	  	<output id="answer-three">
-	  	</output>
-  	</section>
+    <div class="game-display">
+      <header>
+        <time datetime="00:00:30">Timer</time>
+        <div class="title">
+          <h1>FAMILY FEUD</h1>
+        </div>
+        <img class="img__wrong-answer" src="https://ui-ex.com/images/x-transparent-family-feud-5.png">
+      </header>
+      <h3 id="survey-question"></h3>
+      <section class="section--game-play">
+          <div class="game-board">
+      	  	<output id="answer-one"><span class="number">1</span>
+      	  	</output>
+      	  	<output id="answer-two"><span class="number">2</span>
+      	  	</output>
+      	  	<output id="answer-three"><span class="number">3</span>
+      	  	</output>
+          </div>
+    	</section>
+    </div>
     <section class="section--players">
     	<div class="player" id="player-one">
-    		<label for="player-one-name">Player One Name</label>
+    		<label for="player-one-name">Player One</label>
     		<input type="text" id="player-one-name">
     		<p id="player-one-points"></p>
     	</div>
@@ -36,7 +42,7 @@
     		</fieldset>
     	</form>
     	<div class="player" id="player-two">
-    		<label for="player-two-name">Player Two Name</label>
+    		<label for="player-two-name">Player Two</label>
     		<input type="text" id="player-two-name">
     		<p id="player-two-points"></p>
     	</div>
