@@ -79,6 +79,10 @@ h3 {
     background: $output-background;
   }
 
+  & output.is-flipped {
+    background: purple;
+  }
+
   & .number {
     font-size: 28px;
     color: white;
@@ -130,4 +134,8 @@ div.player {
 
 .current-turn {
   background: red;
+}
+
+.is-flipped {
+  background: purple;
 }

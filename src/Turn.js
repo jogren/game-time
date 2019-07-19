@@ -7,6 +7,7 @@ class Turn {
   checkGuess(game, guess) {
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
+      domUpdates.flipAnswer(guess);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
     }  

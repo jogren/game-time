@@ -3,11 +3,13 @@ import $ from 'jquery';
 let domUpdates = {
 
   populateQuestionsAndAnswers(round) {
+    $('#answer-one, #answer-two, #answer-three').removeClass('is-flipped');
     $('#survey-question').text(round.currentSurvey.question);
     round.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(round.currentSurveyAnswers[0].answer);
     $('#answer-two').text(round.currentSurveyAnswers[1].answer);
     $('#answer-three').text(round.currentSurveyAnswers[2].answer);
+    
   },
 
   handleGuess(game) {
@@ -32,6 +34,19 @@ let domUpdates = {
   handleHidingAndShowingElements() {
     $('#player-answers').show();
     $('#start-game-button, #player-one-name, #player-two-name, label').hide();
+  },
+
+  
+  flipAnswer(guess) {
+    if ($('output#answer-one').val().toLowerCase() === guess.toLowerCase()) {
+      $('output#answer-one').addClass('is-flipped')
+    }
+    if ($('output#answer-two').val().toLowerCase() === guess.toLowerCase()) {
+      $('output#answer-two').addClass('is-flipped')
+    }
+    if ($('output#answer-three').val().toLowerCase() === guess.toLowerCase()) {
+      $('output#answer-three').addClass('is-flipped')
+    }
   }
 }
 
