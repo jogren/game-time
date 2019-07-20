@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import ConfettiGenerator from "confetti-js";
 
 let domUpdates = {
 
@@ -32,6 +33,18 @@ let domUpdates = {
   handleHidingAndShowingElements() {
     $('#player-answers').show();
     $('#start-game-button, #player-one-name, #player-two-name, label').hide();
+  },
+
+  handleEndGameAnimation(winner) {
+    $('.game-display').addClass("end-game");
+    $('.section--players').addClass("end-game")
+    $('.winner-page').append(`
+      <h4>${winner.name} has won the game!</h4>
+      <button class="restart-game" id="restart-game">Play Again!</button>
+      <canvas id="my-canvas"></canvas>`)
+    var confettiSettings = { target: 'my-canvas' };
+    var confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
   }
 }
 
