@@ -42,9 +42,13 @@ let domUpdates = {
       <h4>${winner.name} has won the game!</h4>
       <button class="restart-game" id="restart-game">Play Again!</button>
       <canvas id="my-canvas"></canvas>`)
-    var confettiSettings = { target: 'my-canvas' };
+    var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png" };
     var confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
+  },
+
+  startNewGame() {
+    window.location.reload();
   }
 }
 
