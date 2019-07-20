@@ -49,7 +49,7 @@ let domUpdates = {
   },
 
   resetAnswerBoard() {
-    $('.scene span').text('')
+    $('span').text('')
     $('.answer-container-1, .answer-container-2, .answer-container-3').removeClass('is-flipped');
   }
 }

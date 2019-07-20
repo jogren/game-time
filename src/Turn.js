@@ -21,11 +21,17 @@ class Turn {
   endTurn(game) {
   	this.switchPlayer(game);
     if (!game.currentRound.currentSurveyAnswers.length) {
-      game.currentRound.endRound(game);
-      domUpdates.resetAnswerBoard();
-      domUpdates.populateQuestionsAndAnswers(game.currentRound);
+      setTimeout(function() {
+        domUpdates.resetAnswerBoard();
+      },2000)
+      setTimeout(function() {
+        domUpdates.populateQuestionsAndAnswers(game.currentRound);
+        game.currentRound.endRound(game);
+      }, 3100);
+      
     }
   }
+
 
   switchPlayer(game) {
   	if (game.currentRound.currentPlayer === game.playerOne) {
