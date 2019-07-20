@@ -11,6 +11,7 @@ class FastMoneyTurn extends Turn {
       game.roundCounter++;
       game.currentRound.startFastMoneyTurn(game);
       game.currentRound.currentPlayer = game.playerTwo;
+      domUpdates.resetAnswerBoard();
       domUpdates.populateQuestionsAndAnswers(game.currentRound);
     } else if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 3) {
       game.endGame();
@@ -20,6 +21,7 @@ class FastMoneyTurn extends Turn {
   timeoutEndTurn(game) {
     if (game.roundCounter < 3) {
       game.roundCounter++;
+      domUpdates.resetAnswerBoard();
     domUpdates.populateQuestionsAndAnswers(game.currentRound);
     game.currentRound.startFastMoneyTurn();
     }

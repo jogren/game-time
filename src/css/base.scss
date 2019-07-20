@@ -79,10 +79,6 @@ h3 {
     background: $output-background;
   }
 
-  & output.is-flipped {
-    background: purple;
-  }
-
   & .number {
     font-size: 28px;
     color: white;
@@ -136,6 +132,47 @@ div.player {
   background: red;
 }
 
+.card-face {
+  display:flex;
+  position: absolute;
+  // height: 100%;
+  // width: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  color :white;
+/*   align-items:center; */
+  justify-content:center;
+}
+
+.card-back-1, 
+.card-back-2,
+.card-back-3
+{
+  background: #ffde4d;
+  color: black;
+  transform: rotateX(180deg);
+  position: absolute;
+}
+
+.answer-container-1,
+.answer-container-2, 
+.answer-container-3 {
+  width: 100%; 
+  height: 100%;
+  position: relative;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+/*   border: 2px solid black; */
+  
+}
+
 .is-flipped {
-  background: purple;
+  transform: rotateX(180deg);
+}
+
+.scene {
+  width: 100%;
+  height: 80px;
+  perspective: 500px;
 }

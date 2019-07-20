@@ -22,6 +22,7 @@ class Turn {
   	this.switchPlayer(game);
     if (!game.currentRound.currentSurveyAnswers.length) {
       game.currentRound.endRound(game);
+      domUpdates.resetAnswerBoard();
       domUpdates.populateQuestionsAndAnswers(game.currentRound);
     }
   }
