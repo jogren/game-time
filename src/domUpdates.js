@@ -35,7 +35,6 @@ let domUpdates = {
     $('#player-answers').show();
     $('#start-game-button, #player-one-name, #player-two-name, label').hide();
   },
-
   
   flipAnswer(guess) {
     if ($('output#answer-one').val().toLowerCase() === guess.toLowerCase()) {
@@ -57,9 +56,10 @@ let domUpdates = {
   handleTimer(timer, answersArray) {
     let interval = setInterval(() => {
       timer--;
-      $('#current-round').text(`Fast Money Round! ${timer}`)
+      $('#current-round').html(`Fast Money Round! <br> 
+        <span class="fast-money-timer">${timer}</span>`)
       if (timer <= 0 || !answersArray.length) {
-        $('#current-round').text(`Fast Money Round! 30`);
+        $('#current-round').html(`Fast Money Round! <br> <span class="fast-money-timer">30</span>`);
         clearInterval(interval);
       }
     }, 1000);

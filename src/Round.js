@@ -26,7 +26,6 @@ class Round {
   }
 
   startFastMoneyTurn(game) {
-  	console.log('fast money turn!!')
     game.startNewRound();
     game.currentRound.currentTurn = new FastMoneyTurn();
   }

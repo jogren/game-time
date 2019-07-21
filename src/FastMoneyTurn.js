@@ -18,6 +18,8 @@ class FastMoneyTurn extends Turn {
       domUpdates.flipAnswer(guess);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
+    } else {
+      domUpdates.showWrongAnswer();
     }
     this.endTurn(game);
   }
