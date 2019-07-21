@@ -1,11 +1,11 @@
 import domUpdates from './domUpdates';
 import Turn from './Turn';
-let timeoutId;
 
 class FastMoneyTurn extends Turn {
   constructor() {
     super();
     this.guessCount = 0;
+    this.timeoutId = null; 
   }
 
   checkGuess(game, guess) { 
@@ -24,7 +24,7 @@ class FastMoneyTurn extends Turn {
 
   endTurn(game) {
     if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 2) {
-      clearTimeout(timeoutId);
+      clearTimeout(this.timeoutId);
       game.roundCounter++;
       game.currentRound.startFastMoneyTurn(game);
       super.switchPlayer(game)
@@ -35,34 +35,15 @@ class FastMoneyTurn extends Turn {
     }
   }
 
-//   endTurn(game) {
-//     console.log('firing fast money turn end turn')
-//     let timer = 30;
-//     domUpdates.handleTimer(timer, game.currentRound.currentSurveyAnswers)
-//     setTimeout(() => {
-//     console.log('timeout!')
-//     if (game.roundCounter === 2) {
-//       game.roundCounter++;
-//       game.currentRound.startFastMoneyTurn(game);
-//       super.switchPlayer(game)
-//       // game.currentRound.currentPlayer = game.playerTwo;
-//       domUpdates.populateQuestionsAndAnswers(game.currentRound, game);
-//     } else if (game.roundCounter === 3) {
-//       game.endGame();
-//     }
-//   }, 30000);
-// }
-
   timeTurn(game) {
       let timer = 30;
       domUpdates.handleTimer(timer, game.currentRound.currentSurveyAnswers)
-      timeoutId = setTimeout(() => {
+      this.timeoutId = setTimeout(() => {
       console.log('timeout!')
       if (game.roundCounter === 2) {
         game.roundCounter++;
         game.currentRound.startFastMoneyTurn(game);
         super.switchPlayer(game)
-        // game.currentRound.currentPlayer = game.playerTwo;
         domUpdates.populateQuestionsAndAnswers(game.currentRound, game);
       } else if (game.roundCounter === 3) {
         game.endGame();

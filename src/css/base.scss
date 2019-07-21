@@ -17,7 +17,7 @@ header {
 }
 
 title {
-  
+  text-align: center;
 }
 
 h1 {
@@ -49,8 +49,9 @@ time {
 }
 
 h3 {
-  height: 35px;
-  width: 450px;
+  color: white;
+  height: 50px;
+  width: 600px;
   margin: auto;
   border: $section-border;
   background: black;
