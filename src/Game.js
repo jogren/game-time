@@ -50,7 +50,10 @@ class Game {
     if (this.playerOne.score === this.playerTwo.score) {
       return 'It\'s a tie!';
     }
-    return this.playerOne.score > this.playerTwo.score ? this.playerOne : this.playerTwo;
+    let winner = this.playerOne.score > this.playerTwo.score ? this.playerOne : this.playerTwo;
+    domUpdates.handleEndGameAnimation(winner);
+    console.log(winner);
+    return winner;
   }
 }
 
