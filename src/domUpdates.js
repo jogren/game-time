@@ -52,6 +52,10 @@ let domUpdates = {
 
   startNewGame() {
     window.location.reload();
+  }, 
+
+  showWrongAnswer() {
+    $(".img__wrong-answer").show(0).delay(500).hide(0);
   }
 }
 
