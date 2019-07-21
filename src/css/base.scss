@@ -53,11 +53,13 @@ time {
 }
 
 h3 {
-  height: 35px;
+  height: 50px;
   width: 450px;
   margin: auto;
   border: $section-border;
   background: black;
+  padding: 10px;
+  text-align: center;
 }
 
 .section--game-play {
@@ -71,17 +73,17 @@ h3 {
   display: grid;
   border: 10px solid black;
   border-radius: 15px;
-  height: 280px;
+  height: 260px;
   width: 550px;
-  background: $board-background;
+  background: black;
 
-  & output {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    border: $section-border;
-    background: $output-background;
-  }
+  // & output {
+  //   display: flex;
+  //   justify-content: center;
+  //   padding: 10px;
+  //   border: $section-border;
+  //   background: $output-background;
+  // }
 
   & .number {
     font-size: 28px;
@@ -144,7 +146,7 @@ div.player {
   backface-visibility: hidden;
   text-align: center;
   color :white;
-/*   align-items:center; */
+  margin: 0 auto 0 auto;
   justify-content:center;
 }
 
@@ -167,7 +169,12 @@ div.player {
   transition: transform 2s;
   transform-style: preserve-3d;
   transform-origin: center center;
-/*   border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  background: blue;
+  margin: auto;
   
 }
 

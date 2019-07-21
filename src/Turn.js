@@ -25,13 +25,11 @@ class Turn {
         domUpdates.resetAnswerBoard();
       },2000)
       setTimeout(function() {
-        domUpdates.populateQuestionsAndAnswers(game.currentRound);
         game.currentRound.endRound(game);
-      }, 3100);
-      
+        domUpdates.populateQuestionsAndAnswers(game.currentRound);
+      }, 3500);
     }
   }
-
 
   switchPlayer(game) {
   	if (game.currentRound.currentPlayer === game.playerOne) {

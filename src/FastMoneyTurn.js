@@ -9,10 +9,16 @@ class FastMoneyTurn extends Turn {
   endTurn(game) {
     if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 2) {
       game.roundCounter++;
-      game.currentRound.startFastMoneyTurn(game);
       game.currentRound.currentPlayer = game.playerTwo;
-      domUpdates.resetAnswerBoard();
-      domUpdates.populateQuestionsAndAnswers(game.currentRound);
+
+      setTimeout(function() {
+        domUpdates.resetAnswerBoard();
+      },2000)
+      setTimeout(function() {
+        game.currentRound.startFastMoneyTurn(game);
+        domUpdates.populateQuestionsAndAnswers(game.currentRound);
+      }, 3500);
+
     } else if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 3) {
       game.endGame();
     }

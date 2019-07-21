@@ -7,8 +7,7 @@ let domUpdates = {
     round.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(round.currentSurveyAnswers[0].answer);
     $('#answer-two').text(round.currentSurveyAnswers[1].answer);
-    $('#answer-three').text(round.currentSurveyAnswers[2].answer);
-    
+    $('#answer-three').text(round.currentSurveyAnswers[2].answer);    
   },
 
   handleGuess(game) {
