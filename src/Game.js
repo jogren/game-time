@@ -16,7 +16,7 @@ class Game {
   }
 
   startGame() {
-    domUpdates.populateQuestionsAndAnswers(this.currentRound, this);
+    domUpdates.populateQuestionsAndAnswers(this);
   }
 
   setCurrentRoundAnswers() {

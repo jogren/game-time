@@ -25,11 +25,12 @@ class Turn {
     if (!game.currentRound.currentSurveyAnswers.length) {
       setTimeout(function() {
         domUpdates.resetAnswerBoard();
-      },2000)
+      },2000);
       setTimeout(function() {
         game.currentRound.endRound(game);
-        domUpdates.populateQuestionsAndAnswers(game.currentRound);
-      }, 3500);
+        console.log('end round setTimeout')
+        domUpdates.populateQuestionsAndAnswers(game);
+      }, 3000);
     }
   }
 

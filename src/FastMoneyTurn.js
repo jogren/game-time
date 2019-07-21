@@ -15,6 +15,7 @@ class FastMoneyTurn extends Turn {
     this.guessCount++;
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
+      domUpdates.flipAnswer(guess);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
     }
@@ -24,21 +25,23 @@ class FastMoneyTurn extends Turn {
 
   endTurn(game) {
     if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 2) {
+      setTimeout(function() {
+        domUpdates.resetAnswerBoard();
+      },2000);
+      setTimeout(function() {
+        game.currentRound.startFastMoneyTurn(game);
+        domUpdates.populateQuestionsAndAnswers(game);
+      }, 3500);
+      
       clearTimeout(this.timeoutId);
       game.roundCounter++;
       game.currentRound.currentPlayer = game.playerTwo;
 
-      setTimeout(function() {
-        domUpdates.resetAnswerBoard();
-      },2000)
-      setTimeout(function() {
-        game.currentRound.startFastMoneyTurn(game);
-        domUpdates.populateQuestionsAndAnswers(game.currentRound);
-      }, 3500);
+     
 
       super.switchPlayer(game)
     } else if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 3) {
-      clearTimeout(timeoutId);
+      clearTimeout(this.timeoutId);
       game.endGame();
     }
   }
@@ -52,7 +55,7 @@ class FastMoneyTurn extends Turn {
         game.roundCounter++;
         game.currentRound.startFastMoneyTurn(game);
         super.switchPlayer(game)
-        domUpdates.populateQuestionsAndAnswers(game.currentRound, game);
+        domUpdates.populateQuestionsAndAnswers(game);
       } else if (game.roundCounter === 3) {
         game.endGame();
       }

@@ -3,17 +3,17 @@ import ConfettiGenerator from "confetti-js";
 
 let domUpdates = {
 
-  populateQuestionsAndAnswers(round, game) {
+  populateQuestionsAndAnswers(game) {
   	if(game.roundCounter < 2) {
   		$('#current-round').text(`Round ${game.roundCounter + 1}`)
   	} else {
   		$('#current-round').text(`Fast Money Round! 30`);
   	}
-    $('#survey-question').text(round.currentSurvey.question);
-    round.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
-    $('#answer-one').text(round.currentSurveyAnswers[0].answer);
-    $('#answer-two').text(round.currentSurveyAnswers[1].answer);
-    $('#answer-three').text(round.currentSurveyAnswers[2].answer);    
+    $('#survey-question').text(game.currentRound.currentSurvey.question);
+    game.currentRound.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
+    $('#answer-one').text(game.currentRound.currentSurveyAnswers[0].answer);
+    $('#answer-two').text(game.currentRound.currentSurveyAnswers[1].answer);
+    $('#answer-three').text(game.currentRound.currentSurveyAnswers[2].answer);    
   },
 
   handleGuess(game) {
@@ -52,7 +52,8 @@ let domUpdates = {
   resetAnswerBoard() {
     $('span').text('')
     $('.answer-container-1, .answer-container-2, .answer-container-3').removeClass('is-flipped');
-  }
+  },
+
   handleTimer(timer, answersArray) {
     let interval = setInterval(() => {
       timer--;
@@ -85,7 +86,7 @@ let domUpdates = {
 
   showWrongAnswer() {
     $(".img__wrong-answer").show(0).delay(500).hide(0);
-  },
+  }
 
 }
 
