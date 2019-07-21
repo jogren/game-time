@@ -19,7 +19,7 @@ let domUpdates = {
   handleGuess(game) {
     game.currentRound.currentTurn.checkGuess(game, $('#player-answer').val());
     if (game.currentPlayer = game.playerOne) {
-      $('player-one').toggle('.current-turn')
+      // $('player-one').toggle('.current-turn')
     }
     $('#player-answer').val('');
     $('#player-one-points').text(game.playerOne.score);
@@ -33,7 +33,7 @@ let domUpdates = {
 
   handleHidingAndShowingElements() {
     $('#player-answers').show();
-    $('#start-game-button, #player-one-name, #player-two-name, label').hide();
+    $('#start-game-button, input#player-one-name, input#player-two-name, label').hide();
   },
 
   
@@ -50,7 +50,6 @@ let domUpdates = {
   },
 
   resetAnswerBoard() {
-    $('span').text('')
     $('.answer-container-1, .answer-container-2, .answer-container-3').removeClass('is-flipped');
   },
 
