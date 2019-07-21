@@ -54,10 +54,17 @@ class FastMoneyTurn extends Turn {
       this.timeoutId = setTimeout(() => {
       console.log('timeout!')
       if (game.roundCounter === 2) {
+        setTimeout(function() {
+          domUpdates.resetAnswerBoard();
+        },2000);
+        setTimeout(function() {
+          game.currentRound.startFastMoneyTurn(game);
+          domUpdates.populateQuestionsAndAnswers(game);
+        }, 3500);
         game.roundCounter++;
-        game.currentRound.startFastMoneyTurn(game);
+        // game.currentRound.startFastMoneyTurn(game);
         super.switchPlayer(game)
-        domUpdates.populateQuestionsAndAnswers(game);
+        // domUpdates.populateQuestionsAndAnswers(game);
       } else if (game.roundCounter === 3) {
         game.endGame();
       }

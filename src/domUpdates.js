@@ -7,7 +7,8 @@ let domUpdates = {
   	if(game.roundCounter < 2) {
   		$('#current-round').text(`Round ${game.roundCounter + 1}`)
   	} else {
-  		$('#current-round').text(`Fast Money Round! 30`);
+  		$('#current-round').html(`Fast Money Round! <br> 
+        <span class="fast-money-timer">30</span>`);
   	}
     $('#survey-question').text(game.currentRound.currentSurvey.question);
     game.currentRound.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
