@@ -2,7 +2,12 @@ import $ from 'jquery';
 
 let domUpdates = {
 
-  populateQuestionsAndAnswers(round) {
+  populateQuestionsAndAnswers(round, game) {
+  	if(game.roundCounter < 2) {
+  		$('#current-round').text(`Round ${game.roundCounter + 1}`)
+  	} else {
+  		$('#current-round').text(`Fast Money Round! 30`);
+  	}
     $('#survey-question').text(round.currentSurvey.question);
     round.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(round.currentSurveyAnswers[0].answer);
@@ -32,7 +37,19 @@ let domUpdates = {
   handleHidingAndShowingElements() {
     $('#player-answers').show();
     $('#start-game-button, #player-one-name, #player-two-name, label').hide();
+  },
+
+  handleTimer(timer, answersArray) {
+    let interval = setInterval(() => {
+      timer--;
+      $('#current-round').text(`Fast Money Round! ${timer}`)
+      if (timer <= 0 || !answersArray.length) {
+        $('#current-round').text(`Fast Money Round! 30`);
+        clearInterval(interval);
+      }
+    }, 1000);
   }
+
 }
 
 export default domUpdates;

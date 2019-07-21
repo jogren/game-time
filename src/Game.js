@@ -16,7 +16,7 @@ class Game {
   }
 
   startGame() {
-    domUpdates.populateQuestionsAndAnswers(this.currentRound);
+    domUpdates.populateQuestionsAndAnswers(this.currentRound, this);
   }
 
   setCurrentRoundAnswers() {
@@ -32,8 +32,7 @@ class Game {
     for (let i = 0; i < 15; i++) {
       let randomId = Math.floor(Math.random() * Math.floor(15) + 1);
       randomIds.push(randomId);
-    } 
-    
+    }
     this.gameIds = Array.from(new Set(randomIds)).slice(0, 4);
     return this.gameIds.map(id => {
       return this.allSurveys.find(survey => survey.id === id);
@@ -47,6 +46,7 @@ class Game {
   }
 
   endGame() {
+    console.log('game over!')
     if (this.playerOne.score === this.playerTwo.score) {
       return 'It\'s a tie!';
     }

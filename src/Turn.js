@@ -10,7 +10,7 @@ class Turn {
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
     }  
-    this.endTurn(game); 	
+    this.endTurn(game);
   }
 
   assignPoints(game, targetAnswer) {
@@ -21,7 +21,7 @@ class Turn {
   	this.switchPlayer(game);
     if (!game.currentRound.currentSurveyAnswers.length) {
       game.currentRound.endRound(game);
-      domUpdates.populateQuestionsAndAnswers(game.currentRound);
+      domUpdates.populateQuestionsAndAnswers(game.currentRound, game);
     }
   }
 
