@@ -40,8 +40,11 @@ let domUpdates = {
     $('.section--players').addClass("end-game")
     $('.winner-page').append(`
       <h4>${winner.name} has won the game!</h4>
-      <button class="restart-game" id="restart-game">Play Again!</button>
+      <button class="restart-game" id="restart-game" onClick="">Play Again!</button>
       <canvas id="my-canvas"></canvas>`)
+    $('#restart-game').on('click', () => {
+      this.startNewGame();
+    });
     var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png" };
     var confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();

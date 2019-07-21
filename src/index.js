@@ -32,9 +32,4 @@ $('#guess-button').on('click', () => {
 	domUpdates.handleGuess(currentGame);
 });
 
-$('#restart-game').on('click', () => {
-  console.log('test in event')
-  domUpdates.startNewGame();
-});
-
 $('#player-answers').hide();
