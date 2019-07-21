@@ -22,8 +22,8 @@ $('#start-game-button').on('click', () => {
 	$('#player-one-name, #player-two-name').show();
 	$('#player-one span').text(currentGame.playerOne.name);
   $('#player-two span').text(currentGame.playerTwo.name);
-  $('#player-one-name').hide()
-  $('#player-two-name').hide()
+  $('#player-one-name').hide();
+  $('#player-two-name').hide();
   $('#player-one-points').text(currentGame.playerOne.score);
   $('#player-two-points').text(currentGame.playerTwo.score);
 });

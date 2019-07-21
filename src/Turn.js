@@ -9,8 +9,10 @@ class Turn {
     if (index !== -1) {
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
-    }  
-    this.endTurn(game);
+    } else {
+      domUpdates.showWrongAnswer();
+    }
+    this.endTurn(game); 	
   }
 
   assignPoints(game, targetAnswer) {
