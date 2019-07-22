@@ -9,14 +9,12 @@ class Turn {
     if(game.currentRound.currentSurveyAnswers.length === 3) {
       this.allRoundAnswers = game.currentRound.currentSurveyAnswers.slice();
     }
-      console.log('all', this.answers)
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
       domUpdates.flipAnswer(guess, this.allRoundAnswers);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
     } else {
-      console.log('wrong')
       domUpdates.showWrongAnswer();
     }
     this.endTurn(game); 	
