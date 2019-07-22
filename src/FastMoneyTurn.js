@@ -9,13 +9,16 @@ class FastMoneyTurn extends Turn {
   }
 
   checkGuess(game, guess) { 
+    if(game.currentRound.currentSurveyAnswers.length === 3) {
+      this.allRoundAnswers = game.currentRound.currentSurveyAnswers.slice();
+    }
     if (this.guessCount === 0) {
       this.timeTurn(game);
     }
     this.guessCount++;
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
-      domUpdates.flipAnswer(guess);
+      domUpdates.flipAnswer(guess, this.allRoundAnswers);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
     } else {
