@@ -14,7 +14,8 @@ let domUpdates = {
     game.currentRound.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(game.currentRound.currentSurveyAnswers[0].answer);
     $('#answer-two').text(game.currentRound.currentSurveyAnswers[1].answer);
-    $('#answer-three').text(game.currentRound.currentSurveyAnswers[2].answer);    
+    $('#answer-three').text(game.currentRound.currentSurveyAnswers[2].answer);
+
   },
 
   handleGuess(game) {
@@ -76,7 +77,7 @@ let domUpdates = {
     $('#restart-game').on('click', () => {
       this.startNewGame();
     });
-    var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png" };
+    var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png"};
     var confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
   },

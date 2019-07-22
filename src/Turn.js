@@ -7,7 +7,7 @@ class Turn {
   checkGuess(game, guess) {
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
-      domUpdates.flipAnswer(guess);
+      domUpdates.flipAnswer(guess, game);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
     } else {
@@ -21,16 +21,10 @@ class Turn {
   }
 
   endTurn(game) {
+  	game.turnCounter++;
   	this.switchPlayer(game);
     if (!game.currentRound.currentSurveyAnswers.length) {
-      setTimeout(function() {
-        domUpdates.resetAnswerBoard();
-      },2000);
-      setTimeout(function() {
-        game.currentRound.endRound(game);
-        console.log('end round setTimeout')
-        domUpdates.populateQuestionsAndAnswers(game);
-      }, 3000);
+    	this.boardDelay(game);
     }
   }
 
@@ -41,6 +35,18 @@ class Turn {
   		game.currentRound.currentPlayer = game.playerOne;
   	}
   }
+
+  boardDelay(game) {
+  	setTimeout(function() {
+  	  domUpdates.resetAnswerBoard();
+  	}, 2000);
+  	setTimeout(function() {
+  	  game.currentRound.endRound(game);
+  	  console.log('end round setTimeout')
+  	  domUpdates.populateQuestionsAndAnswers(game);
+  	}, 3000);
+  }
+
 }
 
 export default Turn;

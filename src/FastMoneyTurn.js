@@ -15,7 +15,7 @@ class FastMoneyTurn extends Turn {
     this.guessCount++;
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
-      domUpdates.flipAnswer(guess);
+      domUpdates.flipAnswer(guess, game);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
     } else {
@@ -26,22 +26,11 @@ class FastMoneyTurn extends Turn {
 
 
   endTurn(game) {
+    game.turnCounter++;
     if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 2) {
-      setTimeout(function() {
-        domUpdates.resetAnswerBoard();
-      },2000);
-      setTimeout(function() {
-        game.currentRound.startFastMoneyTurn(game);
-        domUpdates.populateQuestionsAndAnswers(game);
-      }, 3500);
-      
+      this.boardDelay(game)
       clearTimeout(this.timeoutId);
       game.roundCounter++;
-      game.currentRound.currentPlayer = game.playerTwo;
-
-     
-
-      super.switchPlayer(game)
     } else if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 3) {
       clearTimeout(this.timeoutId);
       game.endGame();
@@ -52,23 +41,24 @@ class FastMoneyTurn extends Turn {
       let timer = 30;
       domUpdates.handleTimer(timer, game.currentRound.currentSurveyAnswers)
       this.timeoutId = setTimeout(() => {
-      console.log('timeout!')
       if (game.roundCounter === 2) {
-        setTimeout(function() {
-          domUpdates.resetAnswerBoard();
-        },2000);
-        setTimeout(function() {
-          game.currentRound.startFastMoneyTurn(game);
-          domUpdates.populateQuestionsAndAnswers(game);
-        }, 3500);
+        game.turnCounter++;
+        this.boardDelay(game)
         game.roundCounter++;
-        // game.currentRound.startFastMoneyTurn(game);
-        super.switchPlayer(game)
-        // domUpdates.populateQuestionsAndAnswers(game);
       } else if (game.roundCounter === 3) {
         game.endGame();
       }
     }, 30000)
+  }
+
+  boardDelay(game) {
+    setTimeout(function() {
+      domUpdates.resetAnswerBoard();
+    }, 2000);
+    setTimeout(function() {
+      game.currentRound.startFastMoneyTurn(game);
+      domUpdates.populateQuestionsAndAnswers(game);
+    }, 3000);
   }
 
 }
