@@ -93,15 +93,6 @@ let domUpdates = {
     $(".img__wrong-answer").show(0).delay(500).hide(0);
   },
 
-  // showCurrentPlayer(game, player) {
-  //   if(player === game.playerOne) {
-  //     $('#player-one').addClass('current-turn');
-  //     $('#player-two').removeClass('current-turn');
-  //   } else {
-  //     $('#player-two').addClass('current-turn');
-  //     $('#player-one').removeClass('current-turn');
-  //   }
-  // }
   showCurrentPlayer(game) {
     if(game.turnCounter % 2 === 0) {
       $('#player-one').addClass('current-turn');

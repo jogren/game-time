@@ -36,6 +36,8 @@ class FastMoneyTurn extends Turn {
       clearTimeout(this.timeoutId);
       game.roundCounter++;
       domUpdates.showCurrentPlayer(game);
+      console.log(game.turnCounter)
+      console.log(game.currentRound.currentPlayer);
     } else if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 3) {
       clearTimeout(this.timeoutId);
       game.endGame();
@@ -51,6 +53,7 @@ class FastMoneyTurn extends Turn {
         this.boardDelay(game);
         game.roundCounter++;
         domUpdates.showCurrentPlayer(game);
+        console.log(game.currentRound.currentPlayer);
       } else if (game.roundCounter === 3) {
         game.endGame();
       }

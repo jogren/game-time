@@ -35,12 +35,5 @@ $('#guess-button').on('click', (e) => {
   return false;
 });
 
-$('#player-answer').on('keydown', (e) => {
-  if(characterCode == 13) {
-  e.preventDefault();
-  domUpdates.handleGuess(currentGame);
-  }
-  return false;
-})
 
 $('#player-answers').hide();

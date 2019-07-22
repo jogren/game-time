@@ -18,7 +18,7 @@ class Game {
 
   startGame() {
     domUpdates.populateQuestionsAndAnswers(this);
-    domUpdates.showCurrentPlayer(this, this.currentRound.currentPlayer)
+    domUpdates.showCurrentPlayer(this)
   }
 
   setCurrentRoundAnswers() {

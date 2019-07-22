@@ -33,13 +33,12 @@ class Turn {
   }
 
   switchPlayer(game) {
-      domUpdates.showCurrentPlayer(game)
     if (game.currentRound.currentPlayer === game.playerOne) {
       game.currentRound.currentPlayer = game.playerTwo;
-  	} else {
-  		game.currentRound.currentPlayer = game.playerOne;
-      // domUpdates.showCurrentPlayer(game, game.playerOne)
-  	}
+    } else {
+      game.currentRound.currentPlayer = game.playerOne;
+    }
+    domUpdates.showCurrentPlayer(game)
   }
 
   boardDelay(game) {
