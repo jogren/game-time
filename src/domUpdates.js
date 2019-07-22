@@ -14,7 +14,8 @@ let domUpdates = {
     game.currentRound.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(game.currentRound.currentSurveyAnswers[0].answer);
     $('#answer-two').text(game.currentRound.currentSurveyAnswers[1].answer);
-    $('#answer-three').text(game.currentRound.currentSurveyAnswers[2].answer);    
+    $('#answer-three').text(game.currentRound.currentSurveyAnswers[2].answer);
+
   },
 
   handleGuess(game) {
@@ -37,6 +38,7 @@ let domUpdates = {
     $('#start-game-button, input#player-one-name, input#player-two-name, label').hide();
   },
   
+
   flipAnswer(guess, answers) {
     if ($('output#answer-one').val().toLowerCase() === guess.toLowerCase()) {
       $('#answer-one').html(`<div class="answers-and-respondents"><span>${answers[0].answer}</span> <span>${answers[0].respondents}</span></div>`);
@@ -78,7 +80,7 @@ let domUpdates = {
     $('#restart-game').on('click', () => {
       this.startNewGame();
     });
-    var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png" };
+    var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png"};
     var confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
   },
@@ -91,17 +93,24 @@ let domUpdates = {
     $(".img__wrong-answer").show(0).delay(500).hide(0);
   },
 
-  showCurrentPlayer(game, player) {
-    if(player === game.playerOne) {
+  // showCurrentPlayer(game, player) {
+  //   if(player === game.playerOne) {
+  //     $('#player-one').addClass('current-turn');
+  //     $('#player-two').removeClass('current-turn');
+  //   } else {
+  //     $('#player-two').addClass('current-turn');
+  //     $('#player-one').removeClass('current-turn');
+  //   }
+  // }
+  showCurrentPlayer(game) {
+    if(game.turnCounter % 2 === 0) {
       $('#player-one').addClass('current-turn');
       $('#player-two').removeClass('current-turn');
     } else {
       $('#player-two').addClass('current-turn');
       $('#player-one').removeClass('current-turn');
-
     }
   }
-
 }
 
 export default domUpdates;

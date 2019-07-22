@@ -53,14 +53,14 @@ h1 {
 
 img {
   position: absolute;
-   top: 50%;
-   left: 50%;
-   width: 500px;
-   height: 500px;
-   margin-top: -250px;
-   margin-left: -250px;
-   display: none;
-   z-index: 99;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  margin-top: -250px;
+  margin-left: -250px;
+  display: none;
+  z-index: 99;
 }
 
 time {
@@ -108,13 +108,13 @@ h3 {
   width: 550px;
   // background: black;
 
-  // & output {
-  //   display: flex;
-  //   justify-content: center;
-  //   padding: 10px;
-  //   border: $section-border;
-  //   background: $output-background;
-  // }
+ //  & output {
+ //   display: flex;
+ //   justify-content: center;
+ //   padding: 10px;
+ //   border: $section-border;
+ //   background: $output-background;
+ //   }
 
   & .number {
     font-size: 28px;
@@ -184,6 +184,7 @@ div.player {
 .card-back-2,
 .card-back-3
 {
+  width: 100%;
   background: yellow;
   color: black;
   transform: rotateX(180deg);
@@ -196,7 +197,7 @@ div.player {
   width: 100%; 
   height: 80%;
   position: relative;
-  transition: transform 2s;
+  transition: transform .6s;
   transform-style: preserve-3d;
   transform-origin: center center;
   display: flex;
@@ -293,4 +294,5 @@ h4 {
 
 .current-turn {
   border: yellow 5px solid;
+  background-color: rgba(247, 202, 223, 0.8);
 }

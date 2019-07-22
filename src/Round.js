@@ -8,7 +8,7 @@ class Round {
     this.currentSurvey = survey;
     this.currentSurveyAnswers = answers;
     this.currentTurn = this.startTurn();
-    this.currentPlayer = game.playerOne;
+    this.currentPlayer = this.checkTurnCounter(game);
   }
 
   endRound(game) {
@@ -28,7 +28,13 @@ class Round {
   startFastMoneyTurn(game) {
     game.startNewRound();
     game.currentRound.currentTurn = new FastMoneyTurn();
+    
   }
+
+  checkTurnCounter(game) {
+  	return game.turnCounter % 2 === 0 ? game.playerOne : game.playerTwo;
+  }
+
 }
 
 export default Round;
