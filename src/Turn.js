@@ -43,8 +43,11 @@ class Turn {
   switchPlayer(game) {
   	if (game.currentRound.currentPlayer === game.playerOne) {
   		game.currentRound.currentPlayer = game.playerTwo;
+      domUpdates.showCurrentPlayer(game, game.playerTwo)
   	} else {
   		game.currentRound.currentPlayer = game.playerOne;
+      domUpdates.showCurrentPlayer(game, game.playerOne)
+
   	}
   }
 }
