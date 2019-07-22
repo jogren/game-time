@@ -38,14 +38,18 @@ let domUpdates = {
     $('#start-game-button, label').hide();
   },
   
-  flipAnswer(guess) {
-    if ($('#answer-one').val().toLowerCase() === guess.toLowerCase()) {
+
+  flipAnswer(guess, answers) {
+    if ($('output#answer-one').val().toLowerCase() === guess.toLowerCase()) {
+      $('#answer-one').html(`<div class="answers-and-respondents"><span>${answers[0].answer}</span> <span>${answers[0].respondents}</span></div>`);
       $('.answer-container-1').addClass('is-flipped')
     }
-    if ($('#answer-two').val().toLowerCase() === guess.toLowerCase()) {
+    if ($('output#answer-two').val().toLowerCase() === guess.toLowerCase()) {
+      $('#answer-two').html(`<div class="answers-and-respondents"><span>${answers[1].answer}</span> <span>${answers[1].respondents}</span></div>`);
       $('.answer-container-2').addClass('is-flipped')
     }
-    if ($('#answer-three').val().toLowerCase() === guess.toLowerCase()) {
+    if ($('output#answer-three').val().toLowerCase() === guess.toLowerCase()) {
+      $('#answer-three').html(`<div class="answers-and-respondents"><span>${answers[2].answer}</span> <span>${answers[2].respondents}</span></div>`);
       $('.answer-container-3').addClass('is-flipped')
     }
   },

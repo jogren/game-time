@@ -172,9 +172,8 @@ div.player {
 .card-back-2,
 .card-back-3
 {
-  background: #ffde4d;
-  color: black;
   width: 100%;
+  color: #ffde4d;
   transform: rotateX(180deg);
   position: absolute;
 }
@@ -231,4 +230,12 @@ h4 {
 
 .end-game {
   display: none;
+}
+
+.answers-and-respondents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 0px 10px;
 }

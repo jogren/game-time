@@ -19,7 +19,7 @@ class Round {
 		  game.startNewRound();
 	 	}
  	}
-   
+
   startTurn() {
     this.currentTurn = new Turn();
   	return this.currentTurn;
