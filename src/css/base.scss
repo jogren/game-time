@@ -76,7 +76,7 @@ time {
   // border: 15px groove silver;
   border-radius: 50%;
   // background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40041/bgFF.svg') #0F5899;
-  background: #48abf7;
+  background: #94d1ff;
   box-shadow: 20px 20px; 
 }
 
@@ -134,11 +134,6 @@ h3 {
   justify-content: space-around;
 }
 
-.player {
-  display: flex;
-  flex-direction: column;
-}
-
 fieldset {
   display: flex;
   flex-direction: column;
@@ -153,15 +148,11 @@ input[type=text] {
   width: 150px;
 }
 
-// input[type=button] {
-//   height: 70px;
-//   width: 150px;
-// }
 
 div.player {
-  background: white;
   width: 200px;
   color: black;
+  margin: 10px auto 10px auto;
 }
 
 .current-turn {
@@ -242,38 +233,27 @@ h4 {
   display: none;
 }
 
-#player-two,
-#player-one {
-  display: inline-block;
+.start-screen {
+  width: 620px;
+  height: 370px;
+  background-color: rgb(201, 170, 232);
   position: relative;
-  min-height: 100px;
-  height: 120px;
-  width: 200px;
-  background-color: hotpink;
-  text-align: center;
+  top: -500px;
   box-shadow: 10px 10px;
-  font-family: 'Mr Dafoe', cursive;
-  font-size: 35px;
-  // border-radius: 90%;
-  // float: left;
+  text-align: center;
+}
+
+.player-start-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #player-one-points, 
 #player-two-points {
   font-family: 'Roboto Slab', serif;
   margin: 0;
-}
-
-#player-two {
-  float: right;
-  top: 60px;
-  left: 80px;
-}
-
-#player-one {
-  float: left;
-  top: 60px;
-  right: 80px;
 }
 
 #current-round {
@@ -291,14 +271,27 @@ h4 {
   padding: 0px 10px;
 }
 
-.start-game-button {
-  position: relative;
-    text-shadow: white 2px 2px;
-    top: -380px;
-    height: 192px;
-    width: 350px;
-    background-color: rgba(255, 105, 180, 0.94);
-    box-shadow: 10px 10px;
-    font-family: "Mr Dafoe", cursive;
-    font-size: 50px;
+#start-game-button {
+  width: 200px;
+  height: 65px;
+  text-shadow: white 2px 2px;
+  font-family: "Mr Dafoe", cursive;
+  border: 1px dashed black;
+  background: none;
+  font-size: 30px;
+  margin: 20px auto 0 auto;
+}
+
+section.player-scores {
+  display: none;
+  height: 220px;
+  width: 320px;
+  text-align: center;
+  border-radius: 50%;
+  background: lightgoldenrodyellow;
+  box-shadow: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

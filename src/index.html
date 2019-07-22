@@ -10,8 +10,8 @@
     <div class="winner-page">
     </div>
     <div class="game-display">
-      <div class="current-round" id="current-round"></div>
       <header>
+        <div id="current-round"></div>
         <div class="title">
 					<h1>Family Feud</h1>
         </div>
@@ -20,12 +20,12 @@
       <h3 id="survey-question"></h3>
       <section class="section--game-play">
 
-					<div class="player" id="player-one">
+					<!-- <div class="player" id="player-one">
 							<span></span>
 							<label for="player-one-name">Player One</label>
 							<input type="text" id="player-one-name" placeholder="Player 1 Name">
 							<p id="player-one-points"></p>
-						</div>
+						</div> -->
 
           <div class="game-board">
 						<div class="scene">
@@ -56,12 +56,12 @@
 					
 
 
-					<div class="player" id="player-two">
+					<!-- <div class="player" id="player-two">
 							<label for="player-two-name">Player Two</label>
 							<span></span>
 							<input type="text" id="player-two-name" placeholder="Player 2 Name">
 							<p id="player-two-points"></p>
-						</div>
+						</div> -->
 
 
       </section>
@@ -72,8 +72,25 @@
     		<label for="player-one-name">Player One</label>
 				<input type="text" id="player-one-name">
     		<p id="player-one-points"></p>
-    	</div> -->
-      <input type="button" class="start-game-button" id="start-game-button" value="Start Game">
+			</div> -->
+			<div class="start-screen">
+					<h2>Welcome to Family Feud!</h2>
+					<p>You will compete against each other to guess the top three most popular survey answers among 100 respondents.</p>
+					<p>Please </b>enter your names and click Start Game.</p>
+					<div class="player-start-screen">
+							<span></span>
+							<label for="player-one-name">Player One</label>
+							<input type="text" id="player-one-name" placeholder="Player 1">
+							
+						</div>
+						<div class="player-start-screen">
+								<label for="player-two-name">Player Two</label>
+								<span></span>
+								<input type="text" id="player-two-name" placeholder="Player 2">
+								
+						</div>
+				<input type="button" class="start-game-button" id="start-game-button" value="Start Game">
+			</div>
     	<form id="player-answers">
     		<fieldset>
     			<legend>Player Answers</legend>
@@ -82,7 +99,20 @@
     			<input type="button" for="player-answers" id="guess-button" value="Make Your Guess">
     		</fieldset>
     	</form>
-    	
+			
+			<section class="player-scores">
+				<div class="player" id="player-one">
+					<span></span>
+					<p id="player-one-points"></p>
+				</div>
+
+				<div class="player" id="player-two">
+					<span></span>
+					<p id="player-two-points"></p>
+				</div>
+		</section>
+
+
     </section>
   </body>
 </html>
