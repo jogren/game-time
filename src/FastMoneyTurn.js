@@ -9,7 +9,6 @@ class FastMoneyTurn extends Turn {
   }
 
   checkGuess(game, guess) { 
-    console.log(game.turnCounter)
     if(game.currentRound.currentSurveyAnswers.length === 3) {
       this.allRoundAnswers = game.currentRound.currentSurveyAnswers.slice();
     }
@@ -31,14 +30,12 @@ class FastMoneyTurn extends Turn {
 
 
   endTurn(game) {
-    game.turnCounter++;
     if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 2) {
+      game.turnCounter++;
       this.boardDelay(game)
       clearTimeout(this.timeoutId);
       game.roundCounter++;
       domUpdates.showCurrentPlayer(game);
-      console.log(game.turnCounter)
-      console.log(game.currentRound.currentPlayer);
     } else if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 3) {
       clearTimeout(this.timeoutId);
       game.endGame();
@@ -54,7 +51,6 @@ class FastMoneyTurn extends Turn {
         this.boardDelay(game);
         game.roundCounter++;
         domUpdates.showCurrentPlayer(game);
-        console.log(game.currentRound.currentPlayer);
       } else if (game.roundCounter === 3) {
         game.endGame();
       }
