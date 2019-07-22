@@ -9,6 +9,7 @@ class FastMoneyTurn extends Turn {
   }
 
   checkGuess(game, guess) { 
+    console.log(game.turnCounter)
     if(game.currentRound.currentSurveyAnswers.length === 3) {
       this.allRoundAnswers = game.currentRound.currentSurveyAnswers.slice();
     }
