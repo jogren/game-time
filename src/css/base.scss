@@ -5,7 +5,7 @@ $section-border: 10px ridge silver;
 
 
 body {
-  background: $primary-background;
+  background: url("http://www.sclance.com/backgrounds/saved-by-the-bell-background/saved-by-the-bell-background_1970597.jpg");
   display: flex;
   flex-direction: column;
   font-family: 'Roboto Slab', serif;
@@ -21,16 +21,24 @@ title {
 }
 
 h1 {
-  font-weight: 700;
-	font-size: 62px;
-	background: -webkit-linear-gradient(#FF4500, #FFAE42);
-	 -webkit-background-clip: text;
-	 -webkit-text-fill-color: transparent;
+  font-weight: 400;
+  font-size: 80px;
+  color: black;
+  -webkit-text-fill-color: #cd31b5; 
+  text-shadow: 2px 2px #000000;
+  // padding: 20px;
+  display: inline;
+  margin-bottom: 20px;
+  position: relative;
+  top: 20px;
+  // right: 28px;
+  font-family: 'Mr Dafoe', cursive; 
 }
 
-h3 {
-  color: white;
-}
+// h3 {
+//   color: white;
+//   margin-top: 50px;
+// }
 
 img {
   position: absolute;
@@ -54,36 +62,40 @@ time {
   height: 650px;
   width: 900px;
   margin: auto;
-  border: 15px groove silver;
+  // border: 15px groove silver;
   border-radius: 50%;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40041/bgFF.svg') #0F5899;
+  // background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40041/bgFF.svg') #0F5899;
+  background: #48abf7;
+  box-shadow: 20px 20px; 
 }
 
 h3 {
-  color: white;
+  color: black;
   height: 50px;
   width: 600px;
-  margin: auto;
-  border: $section-border;
-  background: black;
+  // border: $section-border;
+  background: yellow;
   padding: 10px;
   text-align: center;
+  margin: 40px auto 20px auto;
+  box-shadow: 10px 10px;
 }
 
 .section--game-play {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  margin: 10px 175px;
+  // margin: 10px 175px;
 }
 
 .game-board {
   display: grid;
-  border: 10px solid black;
+  margin: 10px auto 0px;
+  // border: 10px solid black;
   border-radius: 15px;
   height: 260px;
   width: 550px;
-  background: black;
+  // background: black;
 
   // & output {
   //   display: flex;
@@ -95,14 +107,14 @@ h3 {
 
   & .number {
     font-size: 28px;
-    color: white;
+    color: black;
     text-align: center;
     line-height: 50px;
     height: 50px;
     width: 50px;
-    border: 2px solid #3B528E;
-    border-radius: 50%;
-    background-color: rgba(30, 144, 255, .2);
+    // border: 2px solid #3B528E;
+    // border-radius: 50%;
+    // background-color: rgba(30, 144, 255, .2);
   }
 
 }
@@ -162,7 +174,7 @@ div.player {
 .card-back-2,
 .card-back-3
 {
-  background: #ffde4d;
+  background: yellow;
   color: black;
   transform: rotateX(180deg);
   position: absolute;
@@ -172,7 +184,7 @@ div.player {
 .answer-container-2, 
 .answer-container-3 {
   width: 100%; 
-  height: 100%;
+  height: 80%;
   position: relative;
   transition: transform 2s;
   transform-style: preserve-3d;
@@ -180,10 +192,8 @@ div.player {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  background: blue;
-  margin: auto;
-  
+  background: yellow;
+  box-shadow: 10px 10px;
 }
 
 .is-flipped {
@@ -220,4 +230,45 @@ h4 {
 
 .end-game {
   display: none;
+}
+
+#player-two,
+#player-one {
+  display: inline-block;
+  position: relative;
+  min-height: 100px;
+  height: 120px;
+  width: 200px;
+  background-color: hotpink;
+  text-align: center;
+  box-shadow: 10px 10px;
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 35px;
+  // border-radius: 90%;
+  // float: left;
+}
+
+#player-one-points, 
+#player-two-points {
+  font-family: 'Roboto Slab', serif;
+  margin: 0;
+}
+
+#player-two {
+  float: right;
+  top: 60px;
+  left: 80px;
+}
+
+#player-one {
+  float: left;
+  top: 60px;
+  right: 80px;
+}
+
+#current-id {
+  background: lightblue;
+  height: 100px;
+  width: 100px;
+  position: absolute;
 }
