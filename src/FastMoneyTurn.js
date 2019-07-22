@@ -13,6 +13,7 @@ class FastMoneyTurn extends Turn {
       this.timeTurn(game);
     }
     this.guessCount++;
+    game.currentRound.currentPlayer.multiplier = 5;
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
       domUpdates.flipAnswer(guess, game);
@@ -58,7 +59,7 @@ class FastMoneyTurn extends Turn {
     setTimeout(function() {
       game.currentRound.startFastMoneyTurn(game);
       domUpdates.populateQuestionsAndAnswers(game);
-    }, 3000);
+    }, 2500);
   }
 
 }

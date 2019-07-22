@@ -35,17 +35,17 @@ let domUpdates = {
 
   handleHidingAndShowingElements() {
     $('#player-answers').show();
-    $('#start-game-button, #player-one-name, #player-two-name, label').hide();
+    $('#start-game-button, label').hide();
   },
   
   flipAnswer(guess) {
-    if ($('output#answer-one').val().toLowerCase() === guess.toLowerCase()) {
+    if ($('#answer-one').val().toLowerCase() === guess.toLowerCase()) {
       $('.answer-container-1').addClass('is-flipped')
     }
-    if ($('output#answer-two').val().toLowerCase() === guess.toLowerCase()) {
+    if ($('#answer-two').val().toLowerCase() === guess.toLowerCase()) {
       $('.answer-container-2').addClass('is-flipped')
     }
-    if ($('output#answer-three').val().toLowerCase() === guess.toLowerCase()) {
+    if ($('#answer-three').val().toLowerCase() === guess.toLowerCase()) {
       $('.answer-container-3').addClass('is-flipped')
     }
   },

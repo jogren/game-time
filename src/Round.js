@@ -26,9 +26,9 @@ class Round {
   }
 
   startFastMoneyTurn(game) {
-  	console.log('in round', game.currentRound.currentPlayer)
     game.startNewRound();
     game.currentRound.currentTurn = new FastMoneyTurn();
+    
   }
 
   checkTurnCounter(game) {

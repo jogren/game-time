@@ -42,9 +42,8 @@ class Turn {
   	}, 2000);
   	setTimeout(function() {
   	  game.currentRound.endRound(game);
-  	  console.log('end round setTimeout')
   	  domUpdates.populateQuestionsAndAnswers(game);
-  	}, 3000);
+  	}, 2500);
   }
 
 }
