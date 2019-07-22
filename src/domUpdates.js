@@ -14,7 +14,8 @@ let domUpdates = {
     game.currentRound.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
     $('#answer-one').text(game.currentRound.currentSurveyAnswers[0].answer);
     $('#answer-two').text(game.currentRound.currentSurveyAnswers[1].answer);
-    $('#answer-three').text(game.currentRound.currentSurveyAnswers[2].answer);    
+    $('#answer-three').text(game.currentRound.currentSurveyAnswers[2].answer);
+
   },
 
   handleGuess(game) {
@@ -34,9 +35,10 @@ let domUpdates = {
 
   handleHidingAndShowingElements() {
     $('#player-answers').show();
-    $('#start-game-button, #player-one-name, #player-two-name, label').hide();
+    $('#start-game-button, label').hide();
   },
   
+
   flipAnswer(guess, answers) {
     if ($('output#answer-one').val().toLowerCase() === guess.toLowerCase()) {
       $('#answer-one').html(`<div class="answers-and-respondents"><span>${answers[0].answer}</span> <span>${answers[0].respondents}</span></div>`);
@@ -79,7 +81,7 @@ let domUpdates = {
     $('#restart-game').on('click', () => {
       this.startNewGame();
     });
-    var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png" };
+    var confettiSettings = { target: 'my-canvas', size: 3, rotate: true, type: "png", src: "../images/steve-harvey-face.png"};
     var confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
   },

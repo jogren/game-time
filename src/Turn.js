@@ -27,16 +27,10 @@ class Turn {
   }
 
   endTurn(game) {
+  	game.turnCounter++;
   	this.switchPlayer(game);
     if (!game.currentRound.currentSurveyAnswers.length) {
-      setTimeout(function() {
-        domUpdates.resetAnswerBoard();
-      },2000);
-      setTimeout(function() {
-        game.currentRound.endRound(game);
-        console.log('end round setTimeout')
-        domUpdates.populateQuestionsAndAnswers(game);
-      }, 3000);
+    	this.boardDelay(game);
     }
   }
 
@@ -47,6 +41,17 @@ class Turn {
   		game.currentRound.currentPlayer = game.playerOne;
   	}
   }
+
+  boardDelay(game) {
+  	setTimeout(function() {
+  	  domUpdates.resetAnswerBoard();
+  	}, 2000);
+  	setTimeout(function() {
+  	  game.currentRound.endRound(game);
+  	  domUpdates.populateQuestionsAndAnswers(game);
+  	}, 2500);
+  }
+
 }
 
 export default Turn;
