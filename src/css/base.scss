@@ -278,9 +278,13 @@ h4 {
 }
 
 #player-one {
-  margin: 50px 150px 0 0;
+  // margin: 50px 150px 0 0;
+  right: 150px;
+  top: 50px;
 }
 
 #player-two {
-  margin: 50px 0 0 150px;
+  // margin: 50px 0 0 150px;
+  top: 50px; 
+  left: 150px;
 }
