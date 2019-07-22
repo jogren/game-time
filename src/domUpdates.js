@@ -7,7 +7,8 @@ let domUpdates = {
   	if(game.roundCounter < 2) {
   		$('#current-round').text(`Round ${game.roundCounter + 1}`)
   	} else {
-  		$('#current-round').text(`Fast Money Round! 30`);
+  		$('#current-round').html(`Fast Money Round! <br> 
+        <span class="fast-money-timer">30</span>`);
   	}
     $('#survey-question').text(game.currentRound.currentSurvey.question);
     game.currentRound.currentSurveyAnswers.sort((a,b) => b.respondents - a.respondents);
@@ -35,16 +36,18 @@ let domUpdates = {
     $('#player-answers').show();
     $('#start-game-button, input#player-one-name, input#player-two-name, label').hide();
   },
-
   
-  flipAnswer(guess) {
+  flipAnswer(guess, answers) {
     if ($('output#answer-one').val().toLowerCase() === guess.toLowerCase()) {
+      $('#answer-one').html(`<div class="answers-and-respondents"><span>${answers[0].answer}</span> <span>${answers[0].respondents}</span></div>`);
       $('.answer-container-1').addClass('is-flipped')
     }
     if ($('output#answer-two').val().toLowerCase() === guess.toLowerCase()) {
+      $('#answer-two').html(`<div class="answers-and-respondents"><span>${answers[1].answer}</span> <span>${answers[1].respondents}</span></div>`);
       $('.answer-container-2').addClass('is-flipped')
     }
     if ($('output#answer-three').val().toLowerCase() === guess.toLowerCase()) {
+      $('#answer-three').html(`<div class="answers-and-respondents"><span>${answers[2].answer}</span> <span>${answers[2].respondents}</span></div>`);
       $('.answer-container-3').addClass('is-flipped')
     }
   },
@@ -56,9 +59,10 @@ let domUpdates = {
   handleTimer(timer, answersArray) {
     let interval = setInterval(() => {
       timer--;
-      $('#current-round').text(`Fast Money Round! ${timer}`)
+      $('#current-round').html(`Fast Money Round! <br> 
+        <span class="fast-money-timer">${timer}</span>`)
       if (timer <= 0 || !answersArray.length) {
-        $('#current-round').text(`Fast Money Round! 30`);
+        $('#current-round').html(`Fast Money Round! <br> <span class="fast-money-timer">30</span>`);
         clearInterval(interval);
       }
     }, 1000);

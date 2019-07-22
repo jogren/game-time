@@ -9,15 +9,20 @@ class FastMoneyTurn extends Turn {
   }
 
   checkGuess(game, guess) { 
+    if(game.currentRound.currentSurveyAnswers.length === 3) {
+      this.allRoundAnswers = game.currentRound.currentSurveyAnswers.slice();
+    }
     if (this.guessCount === 0) {
       this.timeTurn(game);
     }
     this.guessCount++;
     let index = game.currentRound.currentSurveyAnswers.findIndex(answerObj => answerObj.answer.toLowerCase() === guess.toLowerCase());
     if (index !== -1) {
-      domUpdates.flipAnswer(guess);
+      domUpdates.flipAnswer(guess, this.allRoundAnswers);
       let targetAnswer = game.currentRound.currentSurveyAnswers.splice(index, 1)[0];
       this.assignPoints(game, targetAnswer);
+    } else {
+      domUpdates.showWrongAnswer();
     }
     this.endTurn(game);
   }
@@ -52,10 +57,17 @@ class FastMoneyTurn extends Turn {
       this.timeoutId = setTimeout(() => {
       console.log('timeout!')
       if (game.roundCounter === 2) {
+        setTimeout(function() {
+          domUpdates.resetAnswerBoard();
+        },2000);
+        setTimeout(function() {
+          game.currentRound.startFastMoneyTurn(game);
+          domUpdates.populateQuestionsAndAnswers(game);
+        }, 3500);
         game.roundCounter++;
-        game.currentRound.startFastMoneyTurn(game);
+        // game.currentRound.startFastMoneyTurn(game);
         super.switchPlayer(game)
-        domUpdates.populateQuestionsAndAnswers(game);
+        // domUpdates.populateQuestionsAndAnswers(game);
       } else if (game.roundCounter === 3) {
         game.endGame();
       }
