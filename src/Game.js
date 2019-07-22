@@ -6,8 +6,9 @@ class Game {
   constructor(allSurveys, allAnswers, player1Name = 'Player 1', player2Name = 'Player 2') {
     this.allSurveys = allSurveys;
     this.allAnswers = allAnswers;
-    this.gameIds;
+    this.gameIds = null;
     this.roundCounter = 0;
+    this.turnCounter = 0;
     this.currentSurveys = this.pickSurveys();
     this.currentAnswers = this.pickAnswers(); 
     this.playerOne = new Player(player1Name);
@@ -17,6 +18,7 @@ class Game {
 
   startGame() {
     domUpdates.populateQuestionsAndAnswers(this);
+    domUpdates.showCurrentPlayer(this)
   }
 
   setCurrentRoundAnswers() {
@@ -24,7 +26,7 @@ class Game {
   }
 
   startNewRound() {
-    this.currentRound = new Round(this, this.currentSurveys[this.roundCounter], this.setCurrentRoundAnswers());  
+    this.currentRound = new Round(this, this.currentSurveys[this.roundCounter], this.setCurrentRoundAnswers()); 
   }
 
   pickSurveys() {
@@ -46,13 +48,11 @@ class Game {
   }
 
   endGame() {
-    console.log('game over!')
     if (this.playerOne.score === this.playerTwo.score) {
       return 'It\'s a tie!';
     }
     let winner = this.playerOne.score > this.playerTwo.score ? this.playerOne : this.playerTwo;
     domUpdates.handleEndGameAnimation(winner);
-    console.log(winner);
     return winner;
   }
 }

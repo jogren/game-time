@@ -18,7 +18,8 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
 
 $('#player-one, #player-two').hide();
 
-$('#start-game-button').on('click', () => {
+$('#start-game-button').on('click', (e) => {
+  e.preventDefault(); 
 	currentGame.startGame();
 	domUpdates.reassignPlayerName(currentGame);
 	domUpdates.handleHidingAndShowingElements();
@@ -31,8 +32,11 @@ $('#start-game-button').on('click', () => {
   $('#player-two-points').text(currentGame.playerTwo.score);
 });
 
-$('#guess-button').on('click', () => {
+$('#guess-button').on('click', (e) => {
+  // e.preventDefault();
 	domUpdates.handleGuess(currentGame);
+  return false;
 });
+
 
 $('#player-answers').hide();
