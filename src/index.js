@@ -16,7 +16,7 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
   .catch(error => console.log(error))
  
 
-$('#player-one, #player-two, .player-scores').hide();
+$('#player-one, #player-two').hide();
 
 $('#start-game-button').on('click', () => {
 	currentGame.startGame();

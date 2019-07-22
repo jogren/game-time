@@ -4,7 +4,7 @@
   	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Mr+Dafoe&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/scss" href="base.scss">
-    <title>GameTime</title>
+    <title>Family Feud, Dude!</title>
   </head>
   <body>
     <div class="winner-page">
@@ -19,20 +19,15 @@
       <img class="img__wrong-answer" src="https://ui-ex.com/images/x-transparent-family-feud-5.png">
       <h3 id="survey-question"></h3>
       <section class="section--game-play">
-
-					<!-- <div class="player" id="player-one">
+					<div class="player" id="player-one">
 							<span></span>
-							<label for="player-one-name">Player One</label>
-							<input type="text" id="player-one-name" placeholder="Player 1 Name">
 							<p id="player-one-points"></p>
-						</div> -->
-
+						</div>
           <div class="game-board">
 						<div class="scene">
 							<div class="answer-container-1">
 								<article class="card-face card-front-1 number index-0">1</article>
 								<output id="answer-one" class="card-face card-back-1">
-									<span class="index-0">1</span><span class="index-0-respondents"></span>
 								</output>
 							</div>
 						</div>
@@ -40,7 +35,6 @@
 							<div class="answer-container-2">
 								<article class="card-face card-front-2 number index-1">2</article>
 								<output id="answer-two" class="card-face card-back-2">
-									<span class="index-1">2</span>
 								</output>
 							</div>
 						</div>
@@ -48,71 +42,41 @@
 						<div class="answer-container-3">
 							<article class="card-face card-front-3 index-2 number">3</article>
 							<output id="answer-three" class="card-face card-back-3">
-								<span class="index-2">3</span>
 							</output>
 						</div>
 						</div>
 					</div>
-					
-
-
-					<!-- <div class="player" id="player-two">
-							<label for="player-two-name">Player Two</label>
-							<span></span>
-							<input type="text" id="player-two-name" placeholder="Player 2 Name">
-							<p id="player-two-points"></p>
-						</div> -->
-
-
+					<div class="player" id="player-two">
+						<span></span>
+						<p id="player-two-points"></p>
+					</div>
       </section>
     </div>
-    <section class="section--players">
-    	<!-- <div class="player" id="player-one">
+		<section class="start-screen">
+			<h2>Welcome to Family Feud!</h2>
+			<p>You will compete against each other to guess the top three most popular survey answers among 100 respondents.</p>
+			<p>Please </b>enter your names and click Start Game.</p>
+			<div class="start-screen--player">
 				<span></span>
-    		<label for="player-one-name">Player One</label>
-				<input type="text" id="player-one-name">
-    		<p id="player-one-points"></p>
-			</div> -->
-			<div class="start-screen">
-					<h2>Welcome to Family Feud!</h2>
-					<p>You will compete against each other to guess the top three most popular survey answers among 100 respondents.</p>
-					<p>Please </b>enter your names and click Start Game.</p>
-					<div class="player-start-screen">
-							<span></span>
-							<label for="player-one-name">Player One</label>
-							<input type="text" id="player-one-name" placeholder="Player 1">
-							
-						</div>
-						<div class="player-start-screen">
-								<label for="player-two-name">Player Two</label>
-								<span></span>
-								<input type="text" id="player-two-name" placeholder="Player 2">
-								
-						</div>
-				<input type="button" class="start-game-button" id="start-game-button" value="Start Game">
+				<label for="player-one-name">Player One</label>
+				<input type="text" id="player-one-name" placeholder="Player 1">	
 			</div>
-    	<form id="player-answers">
-    		<fieldset>
-    			<legend>Player Answers</legend>
-    			<label for="player-answer">Answer!</label>
-    			<input type="text" id="player-answer" placeholder="Current Answer">
-    			<input type="button" for="player-answers" id="guess-button" value="Make Your Guess">
-    		</fieldset>
-    	</form>
-			
-			<section class="player-scores">
-				<div class="player" id="player-one">
-					<span></span>
-					<p id="player-one-points"></p>
-				</div>
-
-				<div class="player" id="player-two">
-					<span></span>
-					<p id="player-two-points"></p>
-				</div>
+			<div class="start-screen--player">
+				<label for="player-two-name">Player Two</label>
+				<span></span>
+				<input type="text" id="player-two-name" placeholder="Player 2">	
+			</div>
+			<input type="button" class="start-game-button" id="start-game-button" value="Start Game">
 		</section>
 
+		<form id="player-answers">
+			<fieldset>
+				<!-- <legend>Player Answers</legend> -->
+				<label for="player-answer">Answer!</label>
+				<input type="text" id="player-answer" placeholder="Current Answer">
+				<input type="button" for="player-answers" id="guess-button" value="Make Your Guess">
+			</fieldset>
+		</form>
 
-    </section>
   </body>
 </html>

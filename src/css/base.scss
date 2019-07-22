@@ -1,7 +1,6 @@
 $primary-background: linear-gradient(90deg, #16295E, #002EFF, #16295E);
 $board-background: linear-gradient(#002EFF, #16295E);
 $output-background: linear-gradient(#2D57FF, #7AABFF, #3B528E);
-$section-border: 10px ridge silver;
 
 
 body {
@@ -46,11 +45,6 @@ h1 {
   font-family: 'Mr Dafoe', cursive; 
 }
 
-// h3 {
-//   color: white;
-//   margin-top: 50px;
-// }
-
 img {
   position: absolute;
    top: 50%;
@@ -73,9 +67,7 @@ time {
   height: 650px;
   width: 900px;
   margin: auto;
-  // border: 15px groove silver;
   border-radius: 50%;
-  // background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40041/bgFF.svg') #0F5899;
   background: #94d1ff;
   box-shadow: 20px 20px; 
 }
@@ -84,7 +76,6 @@ h3 {
   color: black;
   height: 50px;
   width: 600px;
-  // border: $section-border;
   background: yellow;
   padding: 10px;
   text-align: center;
@@ -96,25 +87,14 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  // margin: 10px 175px;
 }
 
 .game-board {
   display: grid;
   margin: 10px auto 0px;
-  // border: 10px solid black;
   border-radius: 15px;
   height: 260px;
   width: 550px;
-  // background: black;
-
-  // & output {
-  //   display: flex;
-  //   justify-content: center;
-  //   padding: 10px;
-  //   border: $section-border;
-  //   background: $output-background;
-  // }
 
   & .number {
     font-size: 28px;
@@ -123,9 +103,6 @@ h3 {
     line-height: 50px;
     height: 50px;
     width: 50px;
-    // border: 2px solid #3B528E;
-    // border-radius: 50%;
-    // background-color: rgba(30, 144, 255, .2);
   }
 }
 
@@ -162,8 +139,6 @@ div.player {
 .card-face {
   display:flex;
   position: absolute;
-  // height: 100%;
-  // width: 100%;
   backface-visibility: hidden;
   text-align: center;
   color :white;
@@ -191,7 +166,7 @@ div.player {
   transform-style: preserve-3d;
   transform-origin: center center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: yellow;
   box-shadow: 10px 10px;
@@ -241,9 +216,10 @@ h4 {
   top: -500px;
   box-shadow: 10px 10px;
   text-align: center;
+  margin: auto;
 }
 
-.player-start-screen {
+.start-screen--player {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -266,7 +242,6 @@ h4 {
 .answers-and-respondents {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   font-size: 18px;
   padding: 0px 10px;
 }
@@ -282,16 +257,28 @@ h4 {
   margin: 20px auto 0 auto;
 }
 
-section.player-scores {
-  display: none;
-  height: 220px;
-  width: 320px;
-  text-align: center;
-  border-radius: 50%;
-  background: lightgoldenrodyellow;
+#player-one,
+#player-two {
+  height: 150px;
+  min-width: 150px;
+  width: auto;
+  background: hotpink;
   box-shadow: 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+    & span {
+      font-family: 'Mr Dafoe', cursive;
+      font-size: 30px;
+  }
+}
+
+#player-one {
+  margin: 50px 150px 0 0;
+}
+
+#player-two {
+  margin: 50px 0 0 150px;
 }
