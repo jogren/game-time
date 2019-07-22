@@ -173,8 +173,7 @@ div.player {
 .card-back-3
 {
   width: 100%;
-  background: #ffde4d;
-  color: black;
+  color: #ffde4d;
   transform: rotateX(180deg);
   position: absolute;
 }
@@ -237,4 +236,6 @@ h4 {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: 18px;
+  padding: 0px 10px;
 }
