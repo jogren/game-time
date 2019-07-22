@@ -153,10 +153,10 @@ input[type=text] {
   width: 150px;
 }
 
-input[type=button] {
-  height: 70px;
-  width: 150px;
-}
+// input[type=button] {
+//   height: 70px;
+//   width: 150px;
+// }
 
 div.player {
   background: white;
@@ -289,4 +289,16 @@ h4 {
   justify-content: space-between;
   font-size: 18px;
   padding: 0px 10px;
+}
+
+.start-game-button {
+  position: relative;
+    text-shadow: white 2px 2px;
+    top: -380px;
+    height: 192px;
+    width: 350px;
+    background-color: rgba(255, 105, 180, 0.94);
+    box-shadow: 10px 10px;
+    font-family: "Mr Dafoe", cursive;
+    font-size: 50px;
 }
