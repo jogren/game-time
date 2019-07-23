@@ -30,3 +30,9 @@
 - Run `npm install` in root directory
 - Run `npm run start` and visit the specified localhost address in your browser
 - Enjoy the game!
+
+### Contributors
+
+- [Brianna DelValle](https://https://github.com/bld010)
+- [David Gitlen](https://github.com/davidagitlen)
+- [Jacob Ogren](https://github.com/jogren)
