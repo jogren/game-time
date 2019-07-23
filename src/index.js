@@ -23,11 +23,11 @@ $('#start-game-button').on('click', (e) => {
 	currentGame.startGame();
 	domUpdates.reassignPlayerName(currentGame);
 	domUpdates.handleHidingAndShowingElements();
-	$('#player-one-name, #player-two-name').show();
-	$('#player-one, #player-two, .player-scores').show();
+	// $('#player-one-name, #player-two-name').show();
+	// $('#player-one, #player-two, .player-scores').show();
 	$('#player-one span').text(currentGame.playerOne.name);
   $('#player-two span').text(currentGame.playerTwo.name);
-  $('input#player-one-name, input#player-two-name, .start-screen').hide();
+  // $('input#player-one-name, input#player-two-name, .start-screen').hide();
   $('#player-one-points').text(currentGame.playerOne.score);
   $('#player-two-points').text(currentGame.playerTwo.score);
 });

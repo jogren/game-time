@@ -35,7 +35,9 @@ let domUpdates = {
 
   handleHidingAndShowingElements() {
     $('#player-answers').show();
-    $('#start-game-button, input#player-one-name, input#player-two-name, label').hide();
+    $('#player-one-name, #player-two-name').show();
+    $('#player-one, #player-two, .player-scores').show();
+    $('#start-game-button, input#player-one-name, input#player-two-name, label, .start-screen').hide();
   },
   
 
