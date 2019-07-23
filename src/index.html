@@ -52,24 +52,6 @@
 						<p id="player-two-points"></p>
 					</div>
       </section>
-    </div>
-		<section class="start-screen">
-			<h2>Welcome to Family Feud!</h2>
-			<p>You will compete against each other to guess the top three most popular survey answers among 100 respondents.</p>
-			<p>Please </b>enter your names and click Start Game.</p>
-			<div class="start-screen--player">
-				<span></span>
-				<label for="player-one-name">Player One</label>
-				<input type="text" id="player-one-name" placeholder="Player 1">	
-			</div>
-			<div class="start-screen--player">
-				<label for="player-two-name">Player Two</label>
-				<span></span>
-				<input type="text" id="player-two-name" placeholder="Player 2">	
-			</div>
-			<input type="button" class="start-game-button" id="start-game-button" value="Start Game">
-		</section>
-
 		<form id="player-answers">
 			<fieldset>
 				<!-- <legend>Player Answers</legend> -->
@@ -78,6 +60,23 @@
 				<input type="submit" for="player-answers" id="guess-button" value="Make Your Guess">
 			</fieldset>
 		</form>
+    </div>
+    <section class="start-screen">
+      <h2>Welcome to Family Feud!</h2>
+      <p>You will compete against each other to guess the top three most popular survey answers among 100 respondents.</p>
+      <p>Please </b>enter your names and click Start Game.</p>
+      <div class="start-screen--player">
+        <span></span>
+        <label for="player-one-name">Player One</label>
+        <input type="text" id="player-one-name" placeholder="Player 1"> 
+      </div>
+      <div class="start-screen--player">
+        <label for="player-two-name">Player Two</label>
+        <span></span>
+        <input type="text" id="player-two-name" placeholder="Player 2"> 
+      </div>
+      <input type="button" class="start-game-button" id="start-game-button" value="Start Game">
+    </section>
 
   </body>
 </html>
