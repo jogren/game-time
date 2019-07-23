@@ -9,7 +9,7 @@ chai.use(spies);
 
 let fastMoneyTurn, currentRound, currentGame;
 
-chai.spy.on(domUpdates, ['populateQuestionsAndAnswers'], () => {});
+// chai.spy.on(domUpdates, ['populateQuestionsAndAnswers'], () => {});
 
 beforeEach(() => {
   fastMoneyTurn = new FastMoneyTurn();
