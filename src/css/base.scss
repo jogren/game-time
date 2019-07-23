@@ -11,8 +11,8 @@ body {
 }
 
 div.current-round {
-  color: #ffde4d;
-  font-size: 18px;
+  color: black;
+  font-size: 14px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -22,6 +22,8 @@ div.current-round {
   width: 150px;
   box-shadow: 10px 10px black;
   position: absolute;
+  flex-direction: column;
+  padding: 3px;
 }
 
 header {
@@ -35,7 +37,7 @@ title {
 
 .fast-money-timer {
   font-size: 50px;
-  color: #ffde4d;
+  color: yellow;
 }
 
 h1 {
@@ -130,7 +132,7 @@ fieldset {
 }
 
 input[type=text] {
-  height: 25px;
+  height: 30px;
   width: 200px;
   margin-bottom: 10px;
 }
@@ -213,8 +215,8 @@ h4 {
   margin-left: 45%;
   margin-top: 28%;
   font-size: 16px;
-  background-color: silver;
-}
+  background-color: #0E70B7;
+  color: white;}
 
 .end-game {
   display: none;
@@ -254,7 +256,7 @@ h4 {
 
 #start-game-button {
   width: 200px;
-  height: 65px;
+  height: 50px;
   text-shadow: white 2px 2px;
   font-family: "Mr Dafoe", cursive;
   border: 1px dashed black;
@@ -283,19 +285,20 @@ h4 {
 }
 
 #player-one {
-  // margin: 50px 150px 0 0;
   right: 150px;
   top: 50px;
 }
 
 #player-two {
-  // margin: 50px 0 0 150px;
   top: 50px; 
   left: 150px;
 }
 
 #guess-button {
-  height: 10%;
+  height: 30px;
   margin: auto;
   width: 100%;
+  background-color: #c9aae8;
+  border: #c9aae8 1px solid;
+  font-size: 14px;
 }
