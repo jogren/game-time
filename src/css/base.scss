@@ -143,11 +143,6 @@ div.player {
   margin: 10px auto 10px auto;
 }
 
-.current-turn {
-  border: yellow 5px solid;
-  transform: scale(1.2) perspective(1px);
-}
-
 .card-face {
   display:flex;
   position: absolute;
@@ -206,6 +201,7 @@ h4 {
   position: absolute;
   width: 100%;
   margin-top: 20%;
+  color: #0E70B7;
 }
 
 .restart-game {
@@ -265,23 +261,26 @@ h4 {
   margin: 5px auto 0 auto;
 }
 
-#player-one,
-#player-two {
+.player {
   height: 150px;
   min-width: 150px;
-  width: auto;
-  background: hotpink;
+  background: rgba(255,20,147, 0.6);
   box-shadow: 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px -20px;
   
     & span {
       font-family: 'Mr Dafoe', cursive;
       font-size: 30px;
   }
+}
+
+#player-one,
+#player-two {
+  margin: 10px -20px;
+  width: auto;
 }
 
 #player-one {
@@ -301,4 +300,10 @@ h4 {
   background-color: #c9aae8;
   border: #c9aae8 1px solid;
   font-size: 14px;
+}
+
+.current-turn {
+  border: yellow 5px solid;
+  transform: scale(1.2) perspective(1px);
+  background: hotpink;
 }
