@@ -127,6 +127,7 @@ h3 {
     // border-radius: 50%;
     // background-color: rgba(30, 144, 255, .2);
   }
+
 }
 
 .section--players {
@@ -142,10 +143,11 @@ h3 {
 fieldset {
   display: flex;
   flex-direction: column;
+  border: 0px;
 }
 
 legend {
-  display: hidden;
+  display: none;
 }
 
 input[type=text] {
@@ -209,6 +211,7 @@ div.player {
 
 .is-flipped {
   transform: rotateX(180deg);
+  box-shadow: 10px -10px;
 }
 
 .scene {
