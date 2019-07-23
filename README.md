@@ -20,7 +20,7 @@
 - Mocha & Chai
 - Chai Spies
 
-![game-time-demo](![familyFeudDemo](https://user-images.githubusercontent.com/19739235/61750891-d812f780-ad63-11e9-9566-666e17c6a089.gif))
+![familyFeudDemo](https://user-images.githubusercontent.com/19739235/61751502-c29ecd00-ad65-11e9-849c-65cd3b5d4a72.gif)
 
 ### Installation Steps
 
