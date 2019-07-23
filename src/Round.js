@@ -2,6 +2,7 @@ import Player from './Player.js';
 import Turn from './Turn.js';
 import Game from './Game.js';
 import FastMoneyTurn from './FastMoneyTurn.js';
+import domUpdates from './domUpdates';
 
 class Round {
   constructor(game, survey, answers) {
@@ -26,9 +27,9 @@ class Round {
   }
 
   startFastMoneyTurn(game) {
+    domUpdates.showFastMoneyIntro();
     game.startNewRound();
     game.currentRound.currentTurn = new FastMoneyTurn();
-    
   }
 
   checkTurnCounter(game) {

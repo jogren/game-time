@@ -101,6 +101,10 @@ let domUpdates = {
       $('#player-two').addClass('current-turn');
       $('#player-one').removeClass('current-turn');
     }
+  },
+
+  showFastMoneyIntro() {
+    $('#fast-money-intro').show(0).delay(8000).hide(0);
   }
 }
 
