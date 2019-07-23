@@ -29,6 +29,11 @@ $('#start-game-button').on('click', (e) => {
   $('#player-two-points').text(currentGame.playerTwo.score);
 });
 
+$('#end-game-button').on('click', (e) => {
+  e.preventDefault();
+  domUpdates.startNewGame();
+})
+
 $('#guess-button').on('click', (e) => {
   // e.preventDefault();
 	domUpdates.handleGuess(currentGame);
