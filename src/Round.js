@@ -2,7 +2,7 @@ import Player from './Player.js';
 import Turn from './Turn.js';
 import Game from './Game.js';
 import FastMoneyTurn from './FastMoneyTurn.js';
-import domUpdates from './domUpdates.js';
+import domUpdates from './domUpdates';
 
 class Round {
   constructor(game, survey, answers) {

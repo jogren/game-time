@@ -7,7 +7,7 @@ let domUpdates = {
   	if(game.roundCounter < 2) {
   		$('#current-round').text(`Round ${game.roundCounter + 1}`)
   	} else {
-  		$('#current-round').html(`Fast Money Round! <br> 
+  		$('#current-round').html(`Fast Money Round! 
         <span class="fast-money-timer">30</span>`);
   	}
     $('#survey-question').text(game.currentRound.currentSurvey.question);
@@ -35,7 +35,9 @@ let domUpdates = {
 
   handleHidingAndShowingElements() {
     $('#player-answers').show();
-    $('#start-game-button, input#player-one-name, input#player-two-name, label').hide();
+    $('#player-one-name, #player-two-name').show();
+    $('#player-one, #player-two, .player-scores').show();
+    $('#start-game-button, input#player-one-name, input#player-two-name, label, .start-screen').hide();
   },
   
 
@@ -61,10 +63,10 @@ let domUpdates = {
   handleTimer(timer, answersArray) {
     let interval = setInterval(() => {
       timer--;
-      $('#current-round').html(`Fast Money Round! <br> 
+      $('#current-round').html(`Fast Money Round! 
         <span class="fast-money-timer">${timer}</span>`)
       if (timer <= 0 || !answersArray.length) {
-        $('#current-round').html(`Fast Money Round! <br> <span class="fast-money-timer">30</span>`);
+        $('#current-round').html(`Fast Money Round! <span class="fast-money-timer">30</span>`);
         clearInterval(interval);
       }
     }, 1000);
@@ -101,6 +103,10 @@ let domUpdates = {
       $('#player-two').addClass('current-turn');
       $('#player-one').removeClass('current-turn');
     }
+  },
+
+  showFastMoneyIntro() {
+    $('#fast-money-intro').show(0).delay(8000).hide(0);
   }
 }
 

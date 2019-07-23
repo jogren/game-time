@@ -10,10 +10,20 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
-.current-round {
-  color: #ffde4d;
-  font-size: 18px;
+div.current-round {
+  color: black;
+  font-size: 14px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c9aae8;
+  height: 150px;
+  width: 150px;
+  box-shadow: 10px 10px black;
   position: absolute;
+  flex-direction: column;
+  padding: 3px;
 }
 
 header {
@@ -27,7 +37,7 @@ title {
 
 .fast-money-timer {
   font-size: 50px;
-  color: #ffde4d;
+  color: yellow;
 }
 
 h1 {
@@ -36,12 +46,10 @@ h1 {
   color: black;
   -webkit-text-fill-color: #cd31b5; 
   text-shadow: 2px 2px #000000;
-  // padding: 20px;
   display: inline;
   margin-bottom: 20px;
   position: relative;
   top: 20px;
-  // right: 28px;
   font-family: 'Mr Dafoe', cursive; 
 }
 
@@ -68,7 +76,7 @@ time {
   width: 900px;
   margin: auto;
   border-radius: 50%;
-  background: #94d1ff;
+  background: #48abf7;
   box-shadow: 20px 20px; 
 }
 
@@ -93,7 +101,7 @@ h3 {
   display: grid;
   margin: 10px auto 0px;
   border-radius: 15px;
-  height: 260px;
+  height: 250px;
   width: 550px;
 
   & .number {
@@ -111,30 +119,34 @@ h3 {
   justify-content: space-around;
 }
 
+form {
+  display: flex;
+  justify-content: center;
+}
+
 fieldset {
   display: flex;
   flex-direction: column;
-}
-
-legend {
-  display: hidden;
+  border: 0;
 }
 
 input[type=text] {
-  height: 25px;
-  width: 150px;
+  height: 30px;
+  width: 200px;
+  margin-bottom: 15px;
+  border: silver 1px solid;
+  padding: 0px 5px;
 }
 
+#player-answer {
+  box-shadow: 10px 10px;
+}
 
 div.player {
   width: 200px;
   color: black;
   margin: 10px auto 10px auto;
-}
-
-.current-turn {
-  border: yellow 5px solid;
-  transform: scale(1.2) perspective(1px);
+  font-size: 24px;
 }
 
 .card-face {
@@ -168,7 +180,7 @@ div.player {
   transform-style: preserve-3d;
   transform-origin: center center;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: yellow;
   box-shadow: 10px 10px;
@@ -176,6 +188,7 @@ div.player {
 
 .is-flipped {
   transform: rotateX(180deg);
+  box-shadow: 10px -10px;
 }
 
 .scene {
@@ -189,21 +202,25 @@ div.player {
 }
 
 h4 {
-  font-size: 46px;
+  font-size: 60px;
   text-align: center;
   position: absolute;
   width: 100%;
   margin-top: 20%;
+  color: yellow;
+  text-shadow: 4px 4px black;
 }
 
 .restart-game {
   position: absolute;
-  height: 5%;
-  width: 10%;
+  height: 6%;
+  width: 13%;
   margin-left: 45%;
   margin-top: 28%;
-  font-size: 16px;
-  background-color: silver;
+  font-size: 20px;
+  background-color: #0E70B7;
+  color: white;
+  border: #0E70B7 1px solid;
 }
 
 .end-game {
@@ -214,8 +231,9 @@ h4 {
   width: 620px;
   height: 370px;
   background-color: rgb(201, 170, 232);
-  position: relative;
-  top: -500px;
+  position: absolute;
+  top: 150px;
+  left: 410px;
   box-shadow: 10px 10px;
   text-align: center;
   margin: auto;
@@ -234,37 +252,29 @@ h4 {
   margin: 0;
 }
 
-#current-round {
-  background: lightblue;
-  height: 100px;
-  width: 100px;
-  position: absolute;
-}
-
 .answers-and-respondents {
   width: 100%;
   display: flex;
-  font-size: 18px;
+  font-size: 20px;
   padding: 0px 10px;
+  justify-content: space-between;
 }
 
 #start-game-button {
   width: 200px;
-  height: 65px;
+  height: 50px;
   text-shadow: white 2px 2px;
   font-family: "Mr Dafoe", cursive;
   border: 1px dashed black;
   background: none;
   font-size: 30px;
-  margin: 20px auto 0 auto;
+  margin: 5px auto 0 auto;
 }
 
-#player-one,
-#player-two {
+.player {
   height: 150px;
   min-width: 150px;
-  width: auto;
-  background: hotpink;
+  background: rgba(255,20,147, 0.6);
   box-shadow: 10px 10px;
   display: flex;
   flex-direction: column;
@@ -273,18 +283,58 @@ h4 {
   
     & span {
       font-family: 'Mr Dafoe', cursive;
-      font-size: 30px;
+      font-size: 32px;
   }
 }
 
+#player-one,
+#player-two {
+  margin: 10px -20px;
+  width: auto;
+  top: 50px; 
+}
+
 #player-one {
-  // margin: 50px 150px 0 0;
   right: 150px;
-  top: 50px;
 }
 
 #player-two {
-  // margin: 50px 0 0 150px;
-  top: 50px; 
   left: 150px;
+}
+
+#guess-button,
+#end-game-button {
+  height: 30px;
+  margin: 0px auto 15px;
+  width: 100%;
+  background-color: #c9aae8;
+  border: #c9aae8 1px solid;
+  font-size: 14px;
+  box-shadow: 10px 10px;
+}
+
+#fast-money-intro {
+  display: none;
+  font-size: 22px;
+  width: 620px;
+  height: 370px;
+  background-color: #c9aae8;
+  position: absolute;
+  top: 150px;
+  left: 410px;
+  box-shadow: 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+
+  & h2 {
+    margin-top: 120px;
+  }
+
+}
+
+.current-turn {
+  border: yellow 5px solid;
+  transform: scale(1.2) perspective(1px);
+  background: hotpink;
 }

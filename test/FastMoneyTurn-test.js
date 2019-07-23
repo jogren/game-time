@@ -25,13 +25,17 @@ describe('FastMoneyTurn', function() {
 
   describe('endTurn', () => {
     it('should increment the roundCounter after a turn is over', () => {
+      chai.spy.on(domUpdates, ['showCurrentPlayer'], () => {});
       currentGame.roundCounter = 2;
       fastMoneyTurn.endTurn(currentGame);
       expect(currentGame.roundCounter).to.equal(3);
     });
 
-    it('should change the current player to playerTwo after turn is over', () => {
+    it.only('should change the current player to playerTwo after turn is over', () => {
+      chai.spy.on(domUpdates, ['showCurrentPlayer'], () => {});
+      chai.spy.on(fastMoneyTurn, ['boardDelay'], () => )
       currentGame.roundCounter = 2;
+      console.log(currentGame.currentRound.currentPlayer)
       fastMoneyTurn.endTurn(currentGame);
       expect(currentGame.currentRound.currentPlayer).to.equal(currentGame.playerTwo);
     });
