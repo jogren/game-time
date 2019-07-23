@@ -51,11 +51,11 @@ class Game {
     if (this.playerOne.score === this.playerTwo.score) {
       return 'It\'s a tie!';
     }
-    let winner = this.playerOne.score > this.playerTwo.score ? this.playerOne : this.playerTwo;
+    let winner = this.playerOne.score > 
+    this.playerTwo.score ? this.playerOne : this.playerTwo;
     domUpdates.handleEndGameAnimation(winner);
     return winner;
   }
 }
-
 
 export default Game;

@@ -15,15 +15,15 @@ class Round {
   endRound(game) {
     game.roundCounter++;
     if (game.roundCounter >= 2) {
-     	this.startFastMoneyTurn(game);
-		} else {
-		  game.startNewRound();
-	 	}
- 	}
+      this.startFastMoneyTurn(game);
+    } else {
+      game.startNewRound();
+    }
+  }
 
   startTurn() {
     this.currentTurn = new Turn();
-  	return this.currentTurn;
+    return this.currentTurn;
   }
 
   startFastMoneyTurn(game) {
@@ -33,9 +33,8 @@ class Round {
   }
 
   checkTurnCounter(game) {
-  	return game.turnCounter % 2 === 0 ? game.playerOne : game.playerTwo;
+    return game.turnCounter % 2 === 0 ? game.playerOne : game.playerTwo;
   }
-
 }
 
 export default Round;
