@@ -6,6 +6,7 @@ class FastMoneyTurn extends Turn {
     super();
     this.guessCount = 0;
     this.timeoutId = null; 
+    this.allRoundAnswers = [];
   }
 
   checkGuess(game, guess) { 
