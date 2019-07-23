@@ -7,7 +7,7 @@ let domUpdates = {
   	if(game.roundCounter < 2) {
   		$('#current-round').text(`Round ${game.roundCounter + 1}`)
   	} else {
-  		$('#current-round').html(`Fast Money Round! <br> 
+  		$('#current-round').html(`Fast Money Round! 
         <span class="fast-money-timer">30</span>`);
   	}
     $('#survey-question').text(game.currentRound.currentSurvey.question);
@@ -61,10 +61,10 @@ let domUpdates = {
   handleTimer(timer, answersArray) {
     let interval = setInterval(() => {
       timer--;
-      $('#current-round').html(`Fast Money Round! <br> 
+      $('#current-round').html(`Fast Money Round! 
         <span class="fast-money-timer">${timer}</span>`)
       if (timer <= 0 || !answersArray.length) {
-        $('#current-round').html(`Fast Money Round! <br> <span class="fast-money-timer">30</span>`);
+        $('#current-round').html(`Fast Money Round! <span class="fast-money-timer">30</span>`);
         clearInterval(interval);
       }
     }, 1000);
