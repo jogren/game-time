@@ -232,8 +232,9 @@ h4 {
   width: 620px;
   height: 370px;
   background-color: rgb(201, 170, 232);
-  position: relative;
-  top: -500px;
+  position: absolute;
+  top: 150px;
+  left: 410px;
   box-shadow: 10px 10px;
   text-align: center;
   margin: auto;
@@ -291,15 +292,14 @@ h4 {
 #player-two {
   margin: 10px -20px;
   width: auto;
+  top: 50px; 
 }
 
 #player-one {
   right: 150px;
-  top: 50px;
 }
 
 #player-two {
-  top: 50px; 
   left: 150px;
 }
 
