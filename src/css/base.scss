@@ -1,6 +1,8 @@
 $primary-background: linear-gradient(90deg, #16295E, #002EFF, #16295E);
 $board-background: linear-gradient(#002EFF, #16295E);
 $output-background: linear-gradient(#2D57FF, #7AABFF, #3B528E);
+$secondary-background: yellow;
+$primary-box-shadow: 10px 10px;
 
 
 body {
@@ -11,19 +13,19 @@ body {
 }
 
 div.current-round {
-  color: black;
-  font-size: 14px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-color: #c9aae8;
-  height: 150px;
-  width: 150px;
-  box-shadow: 10px 10px black;
-  position: absolute;
+  border-radius: 50%;
+  box-shadow: $primary-box-shadow;
+  color: black;
+  display: flex;
   flex-direction: column;
+  font-size: 14px;
+  height: 150px;
+  justify-content: center;
   padding: 3px;
+  position: absolute;
+  width: 150px;
 }
 
 header {
@@ -37,7 +39,7 @@ title {
 
 .fast-money-timer {
   font-size: 50px;
-  color: yellow;
+  color: $secondary-background;
 }
 
 h1 {
@@ -84,11 +86,11 @@ h3 {
   color: black;
   height: 50px;
   width: 600px;
-  background: yellow;
+  background: $secondary-background;
   padding: 10px;
   text-align: center;
   margin: 40px auto 20px auto;
-  box-shadow: 10px 10px;
+  box-shadow: $primary-box-shadow;
 }
 
 .section--game-play {
@@ -139,24 +141,24 @@ input[type=text] {
 }
 
 #player-answer {
-  box-shadow: 10px 10px;
+  box-shadow: $primary-box-shadow;
 }
 
 div.player {
-  width: 200px;
-  color: black;
-  margin: 10px auto 10px auto;
+  // width: 200px;
+  // color: black;
+  // margin: 10px auto 10px auto;
   font-size: 24px;
 }
 
 .card-face {
-  display:flex;
+  display: flex;
   position: absolute;
   backface-visibility: hidden;
   text-align: center;
-  color :white;
+  color: white;
   margin: 0 auto 0 auto;
-  justify-content:center;
+  justify-content: center;
 }
 
 .card-back-1, 
@@ -164,7 +166,7 @@ div.player {
 .card-back-3
 {
   width: 100%;
-  background: yellow;
+  background: $secondary-background;
   color: black;
   transform: rotateX(180deg);
   position: absolute;
@@ -182,8 +184,8 @@ div.player {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: yellow;
-  box-shadow: 10px 10px;
+  background: $secondary-background;
+  box-shadow: $primary-box-shadow;
 }
 
 .is-flipped {
@@ -207,7 +209,7 @@ h4 {
   position: absolute;
   width: 100%;
   margin-top: 20%;
-  color: yellow;
+  color: $secondary-background;
   text-shadow: 4px 4px black;
 }
 
@@ -234,7 +236,7 @@ h4 {
   position: absolute;
   top: 150px;
   left: 410px;
-  box-shadow: 10px 10px;
+  box-shadow: $primary-box-shadow;
   text-align: center;
   margin: auto;
 }
@@ -275,7 +277,7 @@ h4 {
   height: 150px;
   min-width: 150px;
   background: rgba(255,20,147, 0.6);
-  box-shadow: 10px 10px;
+  box-shadow: $primary-box-shadow;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -310,7 +312,7 @@ h4 {
   background-color: #c9aae8;
   border: #c9aae8 1px solid;
   font-size: 14px;
-  box-shadow: 10px 10px;
+  box-shadow: $primary-box-shadow;
 }
 
 #fast-money-intro {
@@ -322,7 +324,7 @@ h4 {
   position: absolute;
   top: 150px;
   left: 410px;
-  box-shadow: 10px 10px;
+  box-shadow: $primary-box-shadow;
   text-align: center;
   vertical-align: middle;
   margin: auto;
@@ -330,11 +332,10 @@ h4 {
   & h2 {
     margin-top: 120px;
   }
-
 }
 
 .current-turn {
-  border: yellow 5px solid;
+  border: $secondary-background 5px solid;
   transform: scale(1.2) perspective(1px);
   background: hotpink;
 }
