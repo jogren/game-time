@@ -12,9 +12,9 @@ const spy = chai.spy();
 
 let game = new Game(data.surveys, data.answers, 'Joe', 'Sarah')
 
-chai.spy.on(domUpdates, ['showCurrentPlayer', 'populateQuestionsAndAnswers', 'handleEndGameAnimation'], () => {});
 
 describe('Game', function() {
+chai.spy.on(domUpdates, ['showCurrentPlayer', 'populateQuestionsAndAnswers', 'handleEndGameAnimation'], () => {});
   it('should create new instances of Game', function() {
     expect(game).to.be.an.instanceOf(Game);
   });

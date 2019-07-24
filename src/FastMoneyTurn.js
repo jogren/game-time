@@ -1,4 +1,4 @@
-import domUpdates from './domUpdates';
+import domUpdates from '../src/domUpdates.js';
 import Turn from './Turn';
 
 class FastMoneyTurn extends Turn {
@@ -33,7 +33,7 @@ class FastMoneyTurn extends Turn {
   endTurn(game) {
     if (!game.currentRound.currentSurveyAnswers.length && game.roundCounter === 2) {
       game.turnCounter++;
-      this.boardDelay(game)
+      this.boardDelay(game);
       clearTimeout(this.timeoutId);
       game.roundCounter++;
       domUpdates.showCurrentPlayer(game);
