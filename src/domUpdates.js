@@ -92,7 +92,7 @@ let domUpdates = {
   }, 
 
   showWrongAnswer() {
-    $(".img__wrong-answer").show(0).delay(55500).hide(0);
+    $(".img__wrong-answer").show(0).delay(500).hide(0);
   },
 
   showCurrentPlayer(game) {

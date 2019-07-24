@@ -1,7 +1,8 @@
 $primary-background: linear-gradient(90deg, #16295E, #002EFF, #16295E);
 $board-background: linear-gradient(#002EFF, #16295E);
 $output-background: linear-gradient(#2D57FF, #7AABFF, #3B528E);
-
+$secondary-background: yellow;
+$primary-box-shadow: 10px 10px;
 
 body {
   background: url("http://www.sclance.com/backgrounds/saved-by-the-bell-background/saved-by-the-bell-background_1970597.jpg");
@@ -10,21 +11,19 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
-div.current-round {
-  color: black;
-  font-size: 14px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #c9aae8;
-  height: 150px;
-  width: 150px;
-  box-shadow: 10px 10px black;
+img {
+  display: none;
+  height: 500px;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -250px;
   position: absolute;
-  flex-direction: column;
-  padding: 3px;
+  top: 50%;
+  width: 500px;
+  z-index: 99;
 }
+
+// TOP OF PAGE
 
 header {
   display: flex;
@@ -35,60 +34,66 @@ title {
   text-align: center;
 }
 
-.fast-money-timer {
-  font-size: 50px;
-  color: yellow;
-}
-
 h1 {
-  font-weight: 400;
-  font-size: 80px;
-  color: black;
   -webkit-text-fill-color: #cd31b5; 
-  text-shadow: 2px 2px #000000;
+  color: black;
   display: inline;
+  font-family: 'Mr Dafoe', cursive; 
+  font-size: 80px;
+  font-weight: 400;
   margin-bottom: 20px;
   position: relative;
+  text-shadow: 2px 2px #000000;
   top: 20px;
-  font-family: 'Mr Dafoe', cursive; 
 }
 
-img {
+div.current-round {
+  align-items: center;
+  background-color: #c9aae8;
+  border-radius: 50%;
+  box-shadow: $primary-box-shadow;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  height: 150px;
+  justify-content: center;
+  padding: 3px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 500px;
-  height: 500px;
-  margin-top: -250px;
-  margin-left: -250px;
-  display: none;
-  z-index: 99;
+  width: 150px;
+}
+
+.fast-money-timer {
+  color: $secondary-background;
+  font-size: 50px;
 }
 
 time {
   width: 100px;
 }
 
+// GAME PLAY
+
 .game-display {
-  display: block;
-  justify-content: center;
-  height: 650px;
-  width: 900px;
-  margin: auto;
-  border-radius: 50%;
   background: #48abf7;
+  border-radius: 50%;
   box-shadow: 20px 20px; 
+  display: block;
+  height: 650px;
+  justify-content: center;
+  margin: auto;
+  width: 900px;
 }
 
 h3 {
+  background: $secondary-background;
+  box-shadow: $primary-box-shadow;
   color: black;
   height: 50px;
-  width: 600px;
-  background: yellow;
+  margin: 40px auto 20px auto;
   padding: 10px;
   text-align: center;
-  margin: 40px auto 20px auto;
-  box-shadow: 10px 10px;
+  width: 600px;
 }
 
 .section--game-play {
@@ -98,20 +103,76 @@ h3 {
 }
 
 .game-board {
-  display: grid;
-  margin: 10px auto 0px;
   border-radius: 15px;
+  display: grid;
   height: 250px;
+  margin: 10px auto 0px;
   width: 550px;
 
   & .number {
-    font-size: 28px;
     color: black;
-    text-align: center;
-    line-height: 50px;
+    font-size: 28px;
     height: 50px;
+    line-height: 50px;
+    text-align: center;
     width: 50px;
   }
+}
+
+.card-face {
+  backface-visibility: hidden;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+  position: absolute;
+  text-align: center;
+}
+
+.card-back-1, 
+.card-back-2,
+.card-back-3
+{
+  background: $secondary-background;
+  color: black;
+  position: absolute;
+  transform: rotateX(180deg);
+  width: 100%;
+}
+
+.answer-container-1,
+.answer-container-2, 
+.answer-container-3 {
+  align-items: center;
+  background: $secondary-background;
+  box-shadow: $primary-box-shadow;
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  position: relative;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  transition: transform .6s;
+  width: 100%; 
+}
+
+.is-flipped {
+  box-shadow: 10px -10px;
+  transform: rotateX(180deg);
+}
+
+.scene {
+  height: 80px;
+  perspective: 500px;
+  width: 100%;
+}
+
+.answers-and-respondents {
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  padding: 0px 10px;
+  width: 100%;
 }
 
 .section--players {
@@ -119,167 +180,23 @@ h3 {
   justify-content: space-around;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-}
-
-fieldset {
-  display: flex;
-  flex-direction: column;
-  border: 0;
-}
-
-input[type=text] {
-  height: 30px;
-  width: 200px;
-  margin-bottom: 15px;
-  border: silver 1px solid;
-  padding: 0px 5px;
-}
-
-#player-answer {
-  box-shadow: 10px 10px;
-}
-
 div.player {
-  width: 200px;
-  color: black;
-  margin: 10px auto 10px auto;
   font-size: 24px;
 }
 
-.card-face {
-  display:flex;
-  position: absolute;
-  backface-visibility: hidden;
-  text-align: center;
-  color :white;
-  margin: 0 auto 0 auto;
-  justify-content:center;
-}
-
-.card-back-1, 
-.card-back-2,
-.card-back-3
-{
-  width: 100%;
-  background: yellow;
-  color: black;
-  transform: rotateX(180deg);
-  position: absolute;
-}
-
-.answer-container-1,
-.answer-container-2, 
-.answer-container-3 {
-  width: 100%; 
-  height: 80%;
-  position: relative;
-  transition: transform .6s;
-  transform-style: preserve-3d;
-  transform-origin: center center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: yellow;
-  box-shadow: 10px 10px;
-}
-
-.is-flipped {
-  transform: rotateX(180deg);
-  box-shadow: 10px -10px;
-}
-
-.scene {
-  width: 100%;
-  height: 80px;
-  perspective: 500px;
-}
-
-#my-canvas {
-  height: 100vh;
-}
-
-h4 {
-  font-size: 60px;
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  margin-top: 20%;
-  color: yellow;
-  text-shadow: 4px 4px black;
-}
-
-.restart-game {
-  position: absolute;
-  height: 6%;
-  width: 13%;
-  margin-left: 45%;
-  margin-top: 28%;
-  font-size: 20px;
-  background-color: #0E70B7;
-  color: white;
-  border: #0E70B7 1px solid;
-}
-
-.end-game {
-  display: none;
-}
-
-.start-screen {
-  width: 620px;
-  height: 370px;
-  background-color: rgb(201, 170, 232);
-  position: absolute;
-  top: 150px;
-  left: 410px;
-  box-shadow: 10px 10px;
-  text-align: center;
-  margin: auto;
-}
-
-.start-screen--player {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#player-one-points, 
-#player-two-points {
-  font-family: 'Roboto Slab', serif;
-  margin: 0;
-}
-
-.answers-and-respondents {
-  width: 100%;
-  display: flex;
-  font-size: 20px;
-  padding: 0px 10px;
-  justify-content: space-between;
-}
-
-#start-game-button {
-  width: 200px;
-  height: 50px;
-  text-shadow: white 2px 2px;
-  font-family: "Mr Dafoe", cursive;
-  border: 1px dashed black;
-  background: none;
-  font-size: 30px;
-  margin: 5px auto 0 auto;
+#player-answer {
+  box-shadow: $primary-box-shadow;
 }
 
 .player {
-  height: 150px;
-  min-width: 150px;
+  align-items: center;
   background: rgba(255,20,147, 0.6);
-  box-shadow: 10px 10px;
+  box-shadow: $primary-box-shadow;
   display: flex;
   flex-direction: column;
+  height: 150px;
   justify-content: center;
-  align-items: center;
+  min-width: 150px;
   
     & span {
       font-family: 'Mr Dafoe', cursive;
@@ -290,8 +207,8 @@ h4 {
 #player-one,
 #player-two {
   margin: 10px -20px;
-  width: auto;
   top: 50px; 
+  width: auto;
 }
 
 #player-one {
@@ -302,39 +219,127 @@ h4 {
   left: 150px;
 }
 
+#player-one-points, 
+#player-two-points {
+  font-family: 'Roboto Slab', serif;
+  margin: 0;
+}
+
+// FORM & GUESS AREA
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type=text] {
+  border: silver 1px solid;
+  height: 30px;
+  margin-bottom: 15px;
+  padding: 0px 5px;
+  width: 200px;
+}
+
 #guess-button,
 #end-game-button {
+  background-color: #c9aae8;
+  border: #c9aae8 1px solid;
+  box-shadow: $primary-box-shadow;
+  font-size: 14px;
   height: 30px;
   margin: 0px auto 15px;
   width: 100%;
-  background-color: #c9aae8;
-  border: #c9aae8 1px solid;
-  font-size: 14px;
-  box-shadow: 10px 10px;
+}
+
+// END GAME ANIMATION, START SCREEN & FAST MONEY INTRO
+
+.restart-game {
+  background-color: #0E70B7;
+  border: #0E70B7 1px solid;
+  color: white;
+  font-size: 20px;
+  height: 6%;
+  margin-left: 45%;
+  margin-top: 28%;
+  position: absolute;
+  width: 13%;
+}
+
+#my-canvas {
+  height: 100vh;
+}
+
+h4 {
+  color: $secondary-background;
+  font-size: 60px;
+  margin-top: 20%;
+  position: absolute;
+  text-align: center;
+  text-shadow: 4px 4px black;
+  width: 100%;
+}
+
+.end-game {
+  display: none;
+}
+
+.start-screen {
+  background-color: rgb(201, 170, 232);
+  box-shadow: $primary-box-shadow;
+  height: 370px;
+  left: 410px;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  top: 150px;
+  width: 620px;
+}
+
+.start-screen--player {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#start-game-button {
+  background: none;
+  border: 1px dashed black;
+  font-family: "Mr Dafoe", cursive;
+  font-size: 30px;
+  height: 50px;
+  margin: 5px auto 0 auto;
+  text-shadow: white 2px 2px;
+  width: 200px;
 }
 
 #fast-money-intro {
+  background-color: #c9aae8;
+  box-shadow: $primary-box-shadow;
   display: none;
   font-size: 22px;
-  width: 620px;
   height: 370px;
-  background-color: #c9aae8;
-  position: absolute;
-  top: 150px;
   left: 410px;
-  box-shadow: 10px 10px;
-  text-align: center;
-  vertical-align: middle;
   margin: auto;
+  position: absolute;
+  text-align: center;
+  top: 150px;
+  vertical-align: middle;
+  width: 620px;
 
   & h2 {
     margin-top: 120px;
   }
-
 }
 
 .current-turn {
-  border: yellow 5px solid;
-  transform: scale(1.2) perspective(1px);
   background: hotpink;
+  border: $secondary-background 5px solid;
+  transform: scale(1.2) perspective(1px);
 }
